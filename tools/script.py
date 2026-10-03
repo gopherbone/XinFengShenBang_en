@@ -86,7 +86,7 @@ def pad_slot(en, cells, font):
     English string (space = 4px)."""
     used_px = text_width(sanitize(en), font)
     spare = cells * 16 - used_px
-    return b" " * ((spare + 3) // 4) if spare > 0 else b""
+    return b" " * (spare // 4) if spare > 0 else b""   # never cross the slot end
 
 PROLOGUE = (0x26, 0x5FA2)
 

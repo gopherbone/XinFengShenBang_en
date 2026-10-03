@@ -54,6 +54,14 @@ SECTION "Char2Patch", ROM0[$08DB]
 SECTION "EAPatch", ROM0[$0AE8]
     call Hook_EA
 
+; --- Location-name banner (system 3, bank $0D) ----------------------------
+; $0D:437C: load string pointer (orig: ld a,[hli] / ld h,[hl] / ld l,a)
+SECTION "Str3Patch", ROMX[$437C], BANK[$0D]
+    call Hook_Str3
+; $0D:438D: glyph output (orig: call $05BB)
+SECTION "Char3Patch", ROMX[$438D], BANK[$0D]
+    call Hook_Char3
+
 ; =====================================================================
 ; Bank 0 hook code (free space at the end of bank 0)
 ; =====================================================================
@@ -192,6 +200,73 @@ Hook_EA::
     ld a, BANK_VWF
     rst $20
     jp VWF_MapName
+
+; --- System 3 hooks (code runs from bank $0D, so English strings are ----
+; copied into WRAM instead of switching banks under it) -----------------
+Hook_Str3::
+    ld a, [hli]
+    ld h, [hl]
+    ld l, a
+    xor a
+    ld [wEnglish3], a
+    ld a, $0D
+    ld [wOrigBank], a
+    ld a, l
+    ld [wOrigPtr], a
+    ld a, h
+    ld [wOrigPtr + 1], a
+    call LookupMsg
+    jr nc, .orig
+    rst $20
+    ld de, wStr3Buf
+.copy
+    ld a, [hli]
+    ld [de], a
+    inc de
+    cp $ED
+    jr nz, .copy
+    push de
+    ld a, $0D
+    rst $20
+    ld a, [wOrigPtr]        ; the byte after the original's $ED is a parameter
+    ld l, a
+    ld a, [wOrigPtr + 1]
+    ld h, a
+.find
+    ld a, [hli]
+    cp $ED
+    jr nz, .find
+    ld a, [hl]
+    pop de
+    ld [de], a
+    ld a, 1
+    ld [wEnglish3], a
+    ld hl, wStr3Buf
+    ret
+.orig
+    ld a, $0D
+    rst $20
+    ld a, [wOrigPtr]
+    ld l, a
+    ld a, [wOrigPtr + 1]
+    ld h, a
+    ret
+
+Hook_Char3::
+    ld b, a
+    ld a, [wEnglish3]
+    and a
+    ld a, b
+    jp z, $05BB
+    ld [$D052], a
+    ld a, [$7FFF]
+    push af
+    ld a, BANK_VWF
+    rst $20
+    call VWF_Char3
+    pop af
+    rst $20
+    ret
 
 Hook_End::
     xor a
@@ -471,6 +546,17 @@ SetTileBase2:
     ld a, [$D08B]
     add b
     ld [wTileBase], a
+    ret
+
+; System 3 glyph: same slot logic as system 2, tiles start at $A8.
+VWF_Char3::
+    ld a, [$D08B]
+    push af
+    ld a, $A8
+    ld [$D08B], a
+    call VWF_Char2
+    pop af
+    ld [$D08B], a
     ret
 
 ; [$D037] = Chinese name pointer (bank $0D) -> English copy, if known.

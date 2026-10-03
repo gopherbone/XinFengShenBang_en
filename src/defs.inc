@@ -25,4 +25,6 @@ DEF wEnglish2    EQU $D78D   ; 1 while an English menu/battle string is shown
 DEF wD055Exp     EQU $D78E   ; [$D055] value left by the last VWF glyph
 DEF wTargetCell  EQU $D78F
 DEF wLineCell    EQU $D7D0   ; system 2: cell offset of the current line
+DEF wEnglish3    EQU $D7D1   ; system 3 (location banner) English flag
+DEF wStr3Buf     EQU $D7D2   ; 46 bytes: English location string copy
 DEF wCellBuf     EQU $D790   ; 64 bytes: current cell + next cell
