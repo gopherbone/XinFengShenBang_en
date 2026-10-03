@@ -21,32 +21,39 @@ def load_translations():
             en[e["id"]] = e["en"]
     return en
 
+def wrap_line(para, font):
+    """Greedy pixel word-wrap of one paragraph -> list of lines."""
+    lines = []; cur = ""
+    for w in para.split():
+        cand = (cur + " " + w) if cur else w
+        if text_width(cand, font) <= LINE_PX:
+            cur = cand; continue
+        if cur: lines.append(cur)
+        cur = w
+        while text_width(cur, font) > LINE_PX:          # hard-split long words
+            n = len(cur)
+            while text_width(cur[:n], font) > LINE_PX: n -= 1
+            lines.append(cur[:n]); cur = cur[n:]
+    if cur: lines.append(cur)
+    return lines
+
 def wrap(text, font):
-    """Greedy pixel word-wrap -> list of pages, each a list of <=2 lines."""
+    """-> list of pages (<=2 lines each). "|" forces a page, "\n" a line."""
     pages = []
     for chunk in text.split("|"):
-        words = chunk.split()
-        lines = []; cur = ""
-        for w in words:
-            cand = (cur + " " + w) if cur else w
-            if text_width(cand, font) <= LINE_PX:
-                cur = cand; continue
-            if cur: lines.append(cur)
-            cur = w
-            while text_width(cur, font) > LINE_PX:      # hard-split long words
-                n = len(cur)
-                while text_width(cur[:n], font) > LINE_PX: n -= 1
-                lines.append(cur[:n]); cur = cur[n:]
-        if cur: lines.append(cur)
-        if not lines: lines = [""]
+        lines = [l for para in chunk.split("\n") for l in wrap_line(para, font)] or [""]
         for i in range(0, len(lines), 2):
             pages.append(lines[i:i + 2])
     return pages
 
+ARROWS = {"\u2191": 0x80, "\u2193": 0x81, "\u2190": 0x82, "\u2192": 0x83,
+          "\u2196": 0x84, "\u2197": 0x85, "\u2198": 0x86, "\u2199": 0x87}
+
 def sanitize(s):
     s = s.replace("…", "...").replace("—", "-").replace("–", "-")
     s = s.replace("‘", "'").replace("’", "'").replace("“", '"').replace("”", '"')
-    return "".join(c if 0x20 <= ord(c) < 0x7F else "?" for c in s)
+    s = "".join(chr(ARROWS[c]) if c in ARROWS else c for c in s)
+    return "".join(c if 0x20 <= ord(c) < 0x7F or 0x80 <= ord(c) <= 0x87 or c == "\n" else "?" for c in s)
 
 def encode_box(text, font, need_free_line=False):
     pages = wrap(sanitize(text), font)
@@ -58,7 +65,7 @@ def encode_box(text, font, need_free_line=False):
         if pi: out.append(0xEC)
         for li, line in enumerate(pg):
             if li: out.append(0xED)
-            out += line.encode("ascii")
+            out += line.encode("latin-1")
     return out
 
 def encode_message(boxes, tail, en, font, syms):

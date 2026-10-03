@@ -2,7 +2,7 @@
 """Build the English ROM: expand, assemble hacks, insert script, fix checksums."""
 import json, os, subprocess, sys, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import fontlib, script, labels
+import fontlib, script, labels, mkips
 
 ROOT = fontlib.ROOT
 BUILD = os.path.join(ROOT, "build")
@@ -15,8 +15,8 @@ def run(*cmd):
     print("+", " ".join(cmd)); subprocess.run(cmd, check=True, cwd=ROOT)
 
 def write_font(font):
-    widths = bytes(font[c][1] for c in range(0x20, 0x7F))
-    data = b"".join(bytes(font[c][0]) for c in range(0x20, 0x7F))
+    widths = bytes(font[c][1] for c in range(0x20, 0x88))
+    data = b"".join(bytes(font[c][0]) for c in range(0x20, 0x88))
     open(os.path.join(BUILD, "font_widths.bin"), "wb").write(widths)
     open(os.path.join(BUILD, "font_data.bin"), "wb").write(data)
 
@@ -51,7 +51,7 @@ def read_sym(path):
 def main():
     os.makedirs(BUILD, exist_ok=True)
     rom = bytearray(open(ORIG, "rb").read())
-    rom += b"\xFF" * (NBANKS * 0x4000 - len(rom))
+    rom += b"\x00" * (NBANKS * 0x4000 - len(rom))
     for b in range(0x80, NBANKS):          # bank self-ID byte read by the game
         rom[b * 0x4000 + 0x3FFF] = b
     rom[0x148] = 0x07                       # 4 MB
@@ -69,6 +69,9 @@ def main():
     stats["labels"] = labels.apply_all(rom)
     open(OUT, "wb").write(rom)
     run("rgbfix", "-v", "build/XinFengShenBang_en.gbc")
+    ips = mkips.make_ips(open(ORIG, "rb").read(), open(OUT, "rb").read())
+    os.makedirs(os.path.join(ROOT, "patch"), exist_ok=True)
+    open(os.path.join(ROOT, "patch", "XinFengShenBang_en.ips"), "wb").write(ips)
     print(stats)
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ with $E4/$ED (return) or $E2 (wait+end).
 import json, os
 import textdump
 from textdump import T
-MENU_BANKS = [0x0C, 0x0D, 0x1E, 0x25, 0x2D]
+MENU_BANKS = [0x0D, 0x1E, 0x25, 0x2D]   # (bank $0C signposts are dialogue)
 TERM = (0xE2, 0xE4, 0xED)
 EXTRA = [(0x0A, 0x4FA9), (0x0A, 0x4FAF),   # title menu (own glyph set)
          (0x2D, 0x7E18)]

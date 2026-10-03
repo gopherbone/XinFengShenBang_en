@@ -31,9 +31,18 @@ def parse(rom, off, limit):
         toks.append(('G', page, b, T[k]))
     return None
 
+SIGN_BANK, SIGN_TABLE = 0x0C, (0x401F, 0x40C0)   # signposts: pointer lists
+
 def collect(rom):
     """All dialogue messages: {"bb:aaaa": tokens} (box-opening messages only)."""
     msgs = {}
+    base = SIGN_BANK * 0x4000
+    for a in range(SIGN_TABLE[0], SIGN_TABLE[1], 2):
+        p = rom[base + a - 0x4000] | rom[base + a - 0x3FFF] << 8
+        if SIGN_TABLE[1] <= p < 0x8000:
+            r = parse(rom, base + p - 0x4000, base + 0x4000)
+            if r and r[0][0][:2] == ('C', 0xE1):
+                msgs[f"{SIGN_BANK:02x}:{p:04x}"] = r[0]
     for b in SCRIPT_BANKS:
         base = b * 0x4000; d = rom[base:base + 0x4000]
         starts = set()
