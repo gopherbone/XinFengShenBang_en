@@ -1,0 +1,24 @@
+; Shared constants for the translation hacks.
+
+DEF BANK_VWF     EQU $80     ; VWF renderer, font, speaker names
+DEF BANK_LOOKUP  EQU $81     ; message redirect table
+DEF FIRST_TEXT_BANK EQU $83  ; English script banks start here ($81-$82: lookup)
+DEF LOOKUP_INDEX EQU $4000
+
+DEF BODY_CELLS   EQU 7       ; 16px cells per dialogue line (112px)
+DEF NAME_CELLS   EQU 4       ; 16px cells in the speaker name field (64px)
+
+; WRAM (verified unused by the original game)
+DEF wEnglish     EQU $D780   ; 1 while an English message is being shown
+DEF wOrigBank    EQU $D781
+DEF wOrigPtr     EQU $D782   ; 2 bytes
+DEF wVwfX        EQU $D784   ; pen x within the current line
+DEF wCurCell     EQU $D785   ; cell held in wCellBuf[0..31]
+DEF wTileBase    EQU $D786   ; first tile of cell 0
+DEF wPlaceMap    EQU $D787   ; nonzero: place tilemap entries for new cells
+DEF wMaxCells    EQU $D788
+DEF wAdv         EQU $D789
+DEF wDidPlace    EQU $D78A   ; a frame wait already happened this glyph
+DEF wPlaced      EQU $D78B   ; bitmask of cells placed on this line
+DEF wSndToggle   EQU $D78C
+DEF wCellBuf     EQU $D790   ; 64 bytes: current cell + next cell
