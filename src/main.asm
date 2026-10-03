@@ -50,6 +50,22 @@ SECTION "Str2Patch", ROM0[$08CA]
 ; $08DB: glyph output (orig: jp $0B02)
 SECTION "Char2Patch", ROM0[$08DB]
     jp Hook_Char2
+; $090B: control-code table entry for E1 (number), orig dw $09C1
+SECTION "E1Patch", ROM0[$090B]
+    dw Hook_E1
+; Battle reward box template (bank $2D): the original leaves a 4-column
+; hole after cell 1 for a fixed-position digit field. Make the 8 cells
+; contiguous so English text and VWF digits flow in one line.
+SECTION "RewardBoxRow1", ROMX[$7D5D], BANK[$2D]
+    FOR I, 8
+        db $31 + I * 4, $33 + I * 4
+    ENDR
+    db $71, $71
+SECTION "RewardBoxRow2", ROMX[$7D71], BANK[$2D]
+    FOR I, 8
+        db $32 + I * 4, $34 + I * 4
+    ENDR
+    db $71, $71
 ; $0AE8: EA inline name substitution (orig: ld a, $0d / rst $20)
 SECTION "EAPatch", ROM0[$0AE8]
     call Hook_EA
@@ -145,6 +161,7 @@ Hook_Str2::
     dec a
     ld a, 0
     jr nz, .nested
+    ld [wIndent], a         ; outermost string: no indent until it asks
     inc a
 .nested
     ld [wStrTop], a
@@ -282,6 +299,65 @@ Hook_Char3::
     call VWF_Char3
     pop af
     rst $20
+    ret
+
+; E1: print the 16-bit big-endian number at [$D031]. In English mode it
+; is drawn inline with the VWF instead of the original fixed digit field.
+Hook_E1::
+    ld a, [wEnglish2]
+    and a
+    jp z, $09C1
+    ld a, [$D031]
+    ld h, a
+    ld a, [$D032]
+    ld l, a
+    ld e, 0                 ; nonzero once a digit has been printed
+    ld bc, -10000
+    call .digit
+    ld bc, -1000
+    call .digit
+    ld bc, -100
+    call .digit
+    ld bc, -10
+    call .digit
+    ld e, 1                 ; always print the ones digit
+    ld bc, -1
+    call .digit
+    jp $08CE
+.digit
+    ld a, "0" - 1
+.sub
+    inc a
+    add hl, bc
+    jr c, .sub
+    ld d, a                 ; undo the last subtraction
+    ld a, l
+    sub c
+    ld l, a
+    ld a, h
+    sbc b
+    ld h, a
+    ld a, d
+    cp "0"
+    jr nz, .emit
+    ld a, e
+    and a
+    ret z                   ; skip leading zero
+    ld a, d
+.emit
+    ld e, 1
+    ld [$D052], a
+    push hl
+    push de
+    ld a, [$7FFF]
+    push af
+    ld a, BANK_VWF
+    rst $20
+    call VWF_Char2
+    pop af
+    rst $20
+    pop de
+    pop hl
     ret
 
 Hook_End::
@@ -513,6 +589,12 @@ VWF_Char2::
     jr .start
 .fresh
     xor a
+    ld [wLineCell], a
+    ld [wCurCell], a
+    ld a, [wIndent]         ; inserted names in an indented line keep it
+    ld [wVwfX], a
+    call ClearCellBuf
+    jr .cont
 .start
     ld [wLineCell], a
     xor a
@@ -529,6 +611,8 @@ VWF_Char2::
     jr nc, .glyph
     cp $18
     jr nc, .pad
+    cp $11
+    jr z, .nudge
     cp $10
     jr nz, .jump
     ld a, [wLineCell]       ; $10: next line of an 8-cell-wide box
@@ -542,6 +626,13 @@ VWF_Char2::
     jr .done
 .pad
     call VWF_Pad2
+    jr .done
+.nudge
+    ld a, BATTLE_INDENT     ; $11: indent this line (and fresh slots in it)
+    ld [wIndent], a
+    ld a, [wVwfX]
+    add BATTLE_INDENT
+    ld [wVwfX], a
     jr .done
 .glyph
     call SetTileBase2

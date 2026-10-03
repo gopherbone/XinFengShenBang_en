@@ -16,10 +16,7 @@
   ],
   "text": "Relic",
   "narrow": "",
-  "y": 4,
-  "clear": [
-   1
-  ]
+  "y": 4
  },
  {
   "name": "menu1",
@@ -38,10 +35,7 @@
   ],
   "text": "Item",
   "narrow": "",
-  "y": 4,
-  "clear": [
-   1
-  ]
+  "y": 4
  },
  {
   "name": "menu2",
@@ -60,10 +54,7 @@
   ],
   "text": "Gear",
   "narrow": "",
-  "y": 4,
-  "clear": [
-   1
-  ]
+  "y": 4
  },
  {
   "name": "menu3",
@@ -82,10 +73,7 @@
   ],
   "text": "Stat",
   "narrow": "",
-  "y": 4,
-  "clear": [
-   1
-  ]
+  "y": 4
  },
  {
   "name": "menu4",
@@ -104,10 +92,7 @@
   ],
   "text": "Team",
   "narrow": "Tm",
-  "y": 4,
-  "clear": [
-   1
-  ]
+  "y": 4
  },
  {
   "name": "menu5",
@@ -126,10 +111,7 @@
   ],
   "text": "Save",
   "narrow": "",
-  "y": 4,
-  "clear": [
-   1
-  ]
+  "y": 4
  },
  {
   "name": "silver",
@@ -378,7 +360,7 @@
     5
    ]
   ],
-  "text": "Qty",
+  "text": "Use",
   "y": 4
  },
  {
@@ -396,7 +378,7 @@
     5
    ]
   ],
-  "text": "Use",
+  "text": "Drop",
   "y": 4
  },
  {
@@ -414,7 +396,7 @@
     5
    ]
   ],
-  "text": "Drop",
+  "text": "Key",
   "y": 4
  },
  {
@@ -432,7 +414,7 @@
     5
    ]
   ],
-  "text": "Key",
+  "text": "Qty",
   "y": 4
  },
  {

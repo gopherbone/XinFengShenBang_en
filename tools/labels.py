@@ -39,6 +39,33 @@ def glyph_rows(ch, font, narrow):
     rows = ["".join("#" if data[3 + r] & (0x80 >> x) else "." for x in range(max(w, 1))) for r in range(10)]
     return rows, w
 
+def inpaint(img, ink, W, H):
+    """Erase the ink and rebuild the background under it from the nearest
+    original pixels in all four directions, so rounded highlight pills,
+    blobs and underline bars keep their shape behind the new text."""
+    out = [r[:] for r in img]
+    def probe(x, y, dx, dy):
+        d = 1
+        while 0 <= x + dx * d < W and 0 <= y + dy * d < H:
+            c = img[y + dy * d][x + dx * d]
+            if c != ink: return c, d
+            d += 1
+        return None, 99
+    for y in range(H):
+        for x in range(W):
+            if img[y][x] != ink: continue
+            l, r = probe(x, y, -1, 0), probe(x, y, 1, 0)
+            u, dn = probe(x, y, 0, -1), probe(x, y, 0, 1)
+            if l[0] is not None and l[0] == r[0]: c = l[0]
+            elif u[0] is not None and u[0] == dn[0]: c = u[0]
+            else:
+                votes = {}
+                for col, dist in (l, r, u, dn):
+                    if col is not None: votes[col] = votes.get(col, 0) + 1.0 / dist
+                c = max(votes, key=votes.get) if votes else 0
+            out[y][x] = c
+    return out
+
 def apply(rom, cfg, font):
     off = cfg["offset"]; layout = cfg["layout"]; ink = cfg.get("ink", 3)
     H = len(layout) * 8; W = len(layout[0]) * 8
@@ -56,17 +83,12 @@ def apply(rom, cfg, font):
             for x in range(W):
                 if img[y][x] == c: img[y][x] = cfg.get("bg", 0)
     bg = cfg.get("bg")
-    for y in range(H):                       # erase ink
-        for x in range(W):
-            if img[y][x] == ink:
-                if bg is not None: img[y][x] = bg; continue
-                c = 0
-                for d in range(1, W):
-                    for xx in (x - d, x + d):
-                        if 0 <= xx < W and img[y][xx] != ink: c = img[y][xx]; break
-                    else: continue
-                    break
-                img[y][x] = c
+    if bg is not None:                       # flat background: just erase ink
+        for y in range(H):
+            for x in range(W):
+                if img[y][x] == ink: img[y][x] = bg
+    else:
+        img = inpaint(img, ink, W, H)
     narrow = cfg.get("narrow", "")
     lines = cfg["text"].split("|")
     lh = cfg.get("line_h", 10)

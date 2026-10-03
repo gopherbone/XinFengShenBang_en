@@ -192,6 +192,8 @@ def insert(rom, font, syms, first_bank, lookup_bank):
             continue
         term = rom[ob * 0x4000 + info["end"] - 1 - 0x4000]
         data = encode_menu(men[mid], info["zh"], font)
+        if ob == 0x2D:                      # battle box: indent away from portrait
+            data = bytearray([0x11]) + data
         if 0 < info["cells"] <= 15 and "[" not in men[mid] and not info["zh"].startswith(("法寶：", "道具：")):
             data += pad_slot(men[mid], info["cells"], font)
         data += bytes([term])
