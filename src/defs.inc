@@ -21,4 +21,8 @@ DEF wAdv         EQU $D789
 DEF wDidPlace    EQU $D78A   ; a frame wait already happened this glyph
 DEF wPlaced      EQU $D78B   ; bitmask of cells placed on this line
 DEF wSndToggle   EQU $D78C
+DEF wEnglish2    EQU $D78D   ; 1 while an English menu/battle string is shown
+DEF wD055Exp     EQU $D78E   ; [$D055] value left by the last VWF glyph
+DEF wTargetCell  EQU $D78F
+DEF wLineCell    EQU $D7D0   ; system 2: cell offset of the current line
 DEF wCellBuf     EQU $D790   ; 64 bytes: current cell + next cell

@@ -20,8 +20,18 @@ def write_font(font):
     open(os.path.join(BUILD, "font_widths.bin"), "wb").write(widths)
     open(os.path.join(BUILD, "font_data.bin"), "wb").write(data)
 
-def write_names(names):
-    lines = ["NameTable::"]
+def write_names(names, rom):
+    # Name2Table: same names, $E4-terminated, for the menu/battle interpreter
+    # (EA substitution); NameSrcTable: the original Chinese pointers (0D:4E34).
+    src = [rom[0xD * 0x4000 + 0xE34 + 2 * i] | rom[0xD * 0x4000 + 0xE35 + 2 * i] << 8
+           for i in range(len(names))]
+    lines = [f"DEF NAME_COUNT EQU {len(names)}", "NameSrcTable::"]
+    lines += [f"    dw ${p:04X}" for p in src]
+    lines.append("Name2Table::")
+    lines += [f"    dw Name2_{i:02X}" for i in range(len(names))]
+    for i, n in enumerate(names):
+        lines.append(f"Name2_{i:02X}: db \"{n}\", $E4" if n else f"Name2_{i:02X}: db $E4")
+    lines.append("NameTable::")
     for i in range(len(names)):
         lines.append(f"    dw Name_{i:02X}")
     for i, n in enumerate(names):
@@ -48,7 +58,7 @@ def main():
     font = fontlib.load()
     write_font(font)
     names = script.load_names()
-    write_names(names)
+    write_names(names, rom)
     base = os.path.join(BUILD, "base.gbc")
     open(base, "wb").write(rom)
     run("rgbasm", "-o", "build/main.o", "src/main.asm")

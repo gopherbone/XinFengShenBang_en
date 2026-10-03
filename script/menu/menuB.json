@@ -1,0 +1,1530 @@
+[
+{
+"id": "0c:40c0",
+"en": "[E1]^Longlai Hotel"
+},
+{
+"id": "0c:40cc",
+"en": "[E1]>Songmen"
+},
+{
+"id": "0c:40d5",
+"en": "[E1]Longlai Htl"
+},
+{
+"id": "0c:40df",
+"en": "[E1]Salon"
+},
+{
+"id": "0c:40ea",
+"en": "[E1]Jade Cv."
+},
+{
+"id": "0c:40f3",
+"en": "[E1]^Xiqi City"
+},
+{
+"id": "0c:40fc",
+"en": ">Xiqi Outskirts[EC]<Mt. Kunlun"
+},
+{
+"id": "0c:410e",
+"en": "[E1]^Mt. Kunlun"
+},
+{
+"id": "0c:4117",
+"en": "vXiqi City[EC]<De'an Village"
+},
+{
+"id": "0c:4128",
+"en": "[E1]^De'an Vil."
+},
+{
+"id": "0c:4132",
+"en": ">Mt. Zhongnan[EC]vKunlun"
+},
+{
+"id": "0c:4142",
+"en": "<Dragon Cave"
+},
+{
+"id": "0c:414c",
+"en": "[E1]Trial Cave"
+},
+{
+"id": "0c:4157",
+"en": "[E1]^Jiuwan Vil."
+},
+{
+"id": "0c:415f",
+"en": ">Dragon God Cave[EC]vTrial Cave"
+},
+{
+"id": "0c:4174",
+"en": "[E1]^Jiuwan Vil."
+},
+{
+"id": "0c:417c",
+"en": ">Chentang Pass[EC]vDragon Cv."
+},
+{
+"id": "0c:418e",
+"en": "[E1]^Jiuwan River"
+},
+{
+"id": "0c:4198",
+"en": ">Jiuwan Vil.[EC]<Noreturn Woods"
+},
+{
+"id": "0c:41a9",
+"en": "[E1]To all who enter"
+},
+{
+"id": "0c:41b8",
+"en": "the Dragon God Cave:[EC]to prove your"
+},
+{
+"id": "0c:41d2",
+"en": "courage,[EC]find 4 Dragon"
+},
+{
+"id": "0c:41e5",
+"en": "Seals."
+},
+{
+"id": "0c:41ea",
+"en": "[E1]^Chentang"
+},
+{
+"id": "0c:41f4",
+"en": "[E1]^Qingfeng"
+},
+{
+"id": "0c:41fe",
+"en": ">Qing Lake"
+},
+{
+"id": "0c:4206",
+"en": "[E1]Trial Cave"
+},
+{
+"id": "0c:4210",
+"en": ">Qing Lake"
+},
+{
+"id": "0c:4218",
+"en": "[E1]^Qing Lake"
+},
+{
+"id": "0c:4221",
+"en": ">Mt. Wufeng"
+},
+{
+"id": "0c:422a",
+"en": "[E1]^Mt. Wufeng"
+},
+{
+"id": "0c:4234",
+"en": ">Turban Den[EC]<Qingfeng Lake"
+},
+{
+"id": "0c:4247",
+"en": "[E1]>Turban Den"
+},
+{
+"id": "0c:4253",
+"en": "vMengxia Village[EC]<Wufeng"
+},
+{
+"id": "0c:4264",
+"en": "[E1]>Turban Den"
+},
+{
+"id": "0c:4270",
+"en": ">Mt. Jialong[EC]^Mengxia Vil."
+},
+{
+"id": "0c:4281",
+"en": "[E1]^Mt. Jialong"
+},
+{
+"id": "0c:428b",
+"en": "<Mengxia Vil."
+},
+{
+"id": "0c:4293",
+"en": "[E1]^Xiqi Outskirts"
+},
+{
+"id": "0c:429e",
+"en": ">Xiqi Battlefield[EC]<Xiqi City"
+},
+{
+"id": "0c:42b0",
+"en": "[E1]^Kuafeng"
+},
+{
+"id": "0c:42b9",
+"en": ">Battlefld.[EC]<Shang Army Jail"
+},
+{
+"id": "0c:42ce",
+"en": "[E1]^Shang Jail"
+},
+{
+"id": "0c:42da",
+"en": ">Xiqi Battlefield[EC]<Xiqi Outskirts"
+},
+{
+"id": "0c:42ee",
+"en": "[E1]^Kuafeng"
+},
+{
+"id": "0c:42f7",
+"en": ">Qingfeng[EC]vXiqi Battlefield"
+},
+{
+"id": "0c:4309",
+"en": "<Trial Cave"
+},
+{
+"id": "0c:4314",
+"en": "[E1]^Trial Cave"
+},
+{
+"id": "0c:4320",
+"en": "[E1]Wind Pil."
+},
+{
+"id": "0c:4327",
+"en": "[E1]Fire Pil."
+},
+{
+"id": "0c:432e",
+"en": "[E1]When wind and"
+},
+{
+"id": "0c:433d",
+"en": "cloud meet,[EC]the seal opens..."
+},
+{
+"id": "0c:4351",
+"en": "[E1]Relics: Cosmic Bow"
+},
+{
+"id": "0c:435d",
+"en": "& Sky Arrow."
+},
+{
+"id": "0c:4368",
+"en": "[E1]^Swirl Cave"
+},
+{
+"id": "0c:4372",
+"en": ">Jiulong Tn."
+},
+{
+"id": "0c:437b",
+"en": "[E1]^Jiulong Cv."
+},
+{
+"id": "0c:4385",
+"en": "<Jiulong Tn."
+},
+{
+"id": "0c:438e",
+"en": "[E1]^Jiulong Tn."
+},
+{
+"id": "0c:4398",
+"en": ">Jushan Manor[EC]<Jialong"
+},
+{
+"id": "0c:43aa",
+"en": "[E1]^Jushan"
+},
+{
+"id": "0c:43b4",
+"en": ">Qianyuan[EC]<Sanshan Pass"
+},
+{
+"id": "0c:43c5",
+"en": "[E1]^Trial Cave"
+},
+{
+"id": "0c:43d1",
+"en": "[E1]>Qianyuan"
+},
+{
+"id": "0c:43da",
+"en": "<Jushan Manor[EC]<Trial Cave"
+},
+{
+"id": "0c:43ee",
+"en": "[E1]^Sanshan P."
+},
+{
+"id": "0c:43f8",
+"en": ">Peach Village[EC]<Mt. Qilin"
+},
+{
+"id": "0c:4408",
+"en": "[E1]Up, Up"
+},
+{
+"id": "0c:4411",
+"en": "[E1]Walk backward~"
+},
+{
+"id": "0c:4420",
+"en": "rock code~"
+},
+{
+"id": "0c:4429",
+"en": "[E1]Dn, Dn"
+},
+{
+"id": "0c:4431",
+"en": "[E1]Lt, Rt"
+},
+{
+"id": "0c:4439",
+"en": "[E1]Left,"
+},
+{
+"id": "0c:443f",
+"en": "START"
+},
+{
+"id": "0c:4448",
+"en": "[E1]Right,"
+},
+{
+"id": "0c:444e",
+"en": ""
+},
+{
+"id": "0c:445b",
+"en": ""
+},
+{
+"id": "0c:4461",
+"en": "[E1]^Yinmeng Lake Hut"
+},
+{
+"id": "0c:446e",
+"en": ">Jizhou Pass[EC]<Jiameng P."
+},
+{
+"id": "0c:447e",
+"en": "[E1]^Jizhou Pass"
+},
+{
+"id": "0c:4487",
+"en": ">Heishan Tn.[EC]<Yinmeng Lake Hut"
+},
+{
+"id": "0c:449c",
+"en": "[E1]^Sanshan P."
+},
+{
+"id": "0c:44a6",
+"en": "<Trial Cave[EC]<Mt. Qilin"
+},
+{
+"id": "0c:44b9",
+"en": "[E1]<Peach Vil."
+},
+{
+"id": "0c:44c2",
+"en": ">Peach Grove[EC]>Jiameng P."
+},
+{
+"id": "0c:44d2",
+"en": "<Sanshan P."
+},
+{
+"id": "0c:44db",
+"en": "[E1]^Jiameng P."
+},
+{
+"id": "0c:44e4",
+"en": ">Yinmeng Lake Hut[EC]<Peach Vil."
+},
+{
+"id": "0c:44f8",
+"en": "[E1]^Zhaoge"
+},
+{
+"id": "0c:4501",
+"en": "<Juelong"
+},
+{
+"id": "0c:450a",
+"en": "[E1]<Heishan Tn."
+},
+{
+"id": "0c:4514",
+"en": ">Xuanyuan Tomb[EC]<Jizhou"
+},
+{
+"id": "0c:4527",
+"en": "[E1]^Old Tomb"
+},
+{
+"id": "0c:4533",
+"en": ">Homesick[EC]<Heishan Town"
+},
+{
+"id": "0c:4545",
+"en": "[E1]^Homesick"
+},
+{
+"id": "0c:454f",
+"en": ">Juelong Ridge[EC]>Tiger Wd."
+},
+{
+"id": "0c:4561",
+"en": "<Old Tomb"
+},
+{
+"id": "0c:456c",
+"en": "[E1]^Homesick"
+},
+{
+"id": "0c:4576",
+"en": ">Tiger Wd."
+},
+{
+"id": "0c:457f",
+"en": "[E1]^Juelong"
+},
+{
+"id": "0c:4589",
+"en": ">Zhaoge[EC]<Homesick Cliff"
+},
+{
+"id": "0c:459a",
+"en": "[E1]>Tongtian"
+},
+{
+"id": "0d:4a10",
+"en": "Thief"
+},
+{
+"id": "0d:4a15",
+"en": "Guard"
+},
+{
+"id": "0d:4a1a",
+"en": "Frog"
+},
+{
+"id": "0d:4a1f",
+"en": "Killer"
+},
+{
+"id": "0d:4a26",
+"en": "Felon"
+},
+{
+"id": "0d:4a2b",
+"en": "Bandit"
+},
+{
+"id": "0d:4a2f",
+"en": "Dark Taoist"
+},
+{
+"id": "0d:4a37",
+"en": "Blademan"
+},
+{
+"id": "0d:4a3e",
+"en": "Taoist"
+},
+{
+"id": "0d:4a43",
+"en": "Flick Sage"
+},
+{
+"id": "0d:4a4b",
+"en": "Page"
+},
+{
+"id": "0d:4a50",
+"en": "Sword"
+},
+{
+"id": "0d:4a54",
+"en": "Blade"
+},
+{
+"id": "0d:4a58",
+"en": "Spear"
+},
+{
+"id": "0d:4a5d",
+"en": "Hewer"
+},
+{
+"id": "0d:4a62",
+"en": "Sniper"
+},
+{
+"id": "0d:4a67",
+"en": "Grim Scholar"
+},
+{
+"id": "0d:4a70",
+"en": "Twin Eagles"
+},
+{
+"id": "0d:4a78",
+"en": "Dreamer"
+},
+{
+"id": "0d:4a7f",
+"en": "Monk"
+},
+{
+"id": "0d:4a84",
+"en": "Dwarf"
+},
+{
+"id": "0d:4a88",
+"en": "Deva"
+},
+{
+"id": "0d:4a8d",
+"en": "Titan"
+},
+{
+"id": "0d:4a92",
+"en": "Frost Fairy"
+},
+{
+"id": "0d:4a9b",
+"en": "Angel"
+},
+{
+"id": "0d:4a9f",
+"en": "Sea Hag"
+},
+{
+"id": "0d:4aa6",
+"en": "Tiger"
+},
+{
+"id": "0d:4aab",
+"en": "Wyrm"
+},
+{
+"id": "0d:4aaf",
+"en": "Drake"
+},
+{
+"id": "0d:4ab4",
+"en": "Spider"
+},
+{
+"id": "0d:4aba",
+"en": "Snake"
+},
+{
+"id": "0d:4abf",
+"en": "Cyclops"
+},
+{
+"id": "0d:4ac8",
+"en": "Oread"
+},
+{
+"id": "0d:4acd",
+"en": "9-Tail Fox"
+},
+{
+"id": "0d:4ad5",
+"en": "Vixen"
+},
+{
+"id": "0d:4adc",
+"en": "Toad Imp"
+},
+{
+"id": "0d:4ae2",
+"en": "Flame Fiend"
+},
+{
+"id": "0d:4aea",
+"en": "Old Hag"
+},
+{
+"id": "0d:4af0",
+"en": "Rocky"
+},
+{
+"id": "0d:4af4",
+"en": "Shell"
+},
+{
+"id": "0d:4af9",
+"en": "Flora"
+},
+{
+"id": "0d:4afe",
+"en": "3-Eyed Imp"
+},
+{
+"id": "0d:4b07",
+"en": "Plume Fairy"
+},
+{
+"id": "0d:4b0f",
+"en": "Bear"
+},
+{
+"id": "0d:4b14",
+"en": "Death"
+},
+{
+"id": "0d:4b18",
+"en": "Goldfish"
+},
+{
+"id": "0d:4b1f",
+"en": "Wight"
+},
+{
+"id": "0d:4b24",
+"en": "Wraith"
+},
+{
+"id": "0d:4b29",
+"en": "Skull"
+},
+{
+"id": "0d:4b2d",
+"en": "Tongue"
+},
+{
+"id": "0d:4b34",
+"en": "Longneck"
+},
+{
+"id": "0d:4b3b",
+"en": "Lamia"
+},
+{
+"id": "0d:4b40",
+"en": "Centaur"
+},
+{
+"id": "0d:4b47",
+"en": "Ape"
+},
+{
+"id": "0d:4b4c",
+"en": "Fire Spirit"
+},
+{
+"id": "0d:4b55",
+"en": "Wind Spirit"
+},
+{
+"id": "0d:4b5e",
+"en": "Earth Spirit"
+},
+{
+"id": "0d:4b67",
+"en": "Water Spirit"
+},
+{
+"id": "0d:4b70",
+"en": "Flying Skull"
+},
+{
+"id": "0d:4b77",
+"en": "Killer Tree"
+},
+{
+"id": "0d:4b7e",
+"en": "Bat Man"
+},
+{
+"id": "0d:4b84",
+"en": "Ice Fiend"
+},
+{
+"id": "0d:4b8b",
+"en": "Tigress"
+},
+{
+"id": "0d:4b92",
+"en": "Dragonet"
+},
+{
+"id": "0d:4b98",
+"en": "Ghoul"
+},
+{
+"id": "0d:4b9d",
+"en": "Lycan"
+},
+{
+"id": "0d:4ba2",
+"en": "Qilin"
+},
+{
+"id": "0d:4ba6",
+"en": "Prawn"
+},
+{
+"id": "0d:4bab",
+"en": "Fishy"
+},
+{
+"id": "0d:4bb0",
+"en": "Unicorn"
+},
+{
+"id": "0d:4bb7",
+"en": "Smoke"
+},
+{
+"id": "0d:4bbc",
+"en": "Clam Imp"
+},
+{
+"id": "0d:4bc2",
+"en": "Mermaid"
+},
+{
+"id": "0d:4bc9",
+"en": "Octopus"
+},
+{
+"id": "0d:4bd0",
+"en": "Crab"
+},
+{
+"id": "0d:4bd6",
+"en": "Black Wyrm"
+},
+{
+"id": "0d:4bde",
+"en": "Demon Bird"
+},
+{
+"id": "0d:4be6",
+"en": "Roc"
+},
+{
+"id": "0d:4bed",
+"en": "Eyeball"
+},
+{
+"id": "0d:4bf4",
+"en": "Kong"
+},
+{
+"id": "0d:4bf9",
+"en": "Scorpion"
+},
+{
+"id": "0d:4c00",
+"en": "Xiaoqian"
+},
+{
+"id": "0d:4c07",
+"en": "Stonefish"
+},
+{
+"id": "0d:4c0d",
+"en": "Catty"
+},
+{
+"id": "0d:4c12",
+"en": "Lion"
+},
+{
+"id": "0d:4c17",
+"en": "Maneater"
+},
+{
+"id": "0d:4c1d",
+"en": "Crawler"
+},
+{
+"id": "0d:4c23",
+"en": "Mantis"
+},
+{
+"id": "0d:4c29",
+"en": "Catfish"
+},
+{
+"id": "0d:4c30",
+"en": "Butterfly"
+},
+{
+"id": "0d:4c37",
+"en": "Lich"
+},
+{
+"id": "0d:4c3e",
+"en": "Brush"
+},
+{
+"id": "0d:4c43",
+"en": "Fire Ring"
+},
+{
+"id": "0d:4c49",
+"en": "Lantern"
+},
+{
+"id": "0d:4c50",
+"en": "Shroom"
+},
+{
+"id": "0d:4c57",
+"en": "Dragonfly"
+},
+{
+"id": "0d:4c5f",
+"en": "Gourd"
+},
+{
+"id": "0d:4c66",
+"en": "Ginseng"
+},
+{
+"id": "0d:4c6d",
+"en": "Chick"
+},
+{
+"id": "0d:4c72",
+"en": "Mirror"
+},
+{
+"id": "0d:4c77",
+"en": "Spider"
+},
+{
+"id": "0d:4c7d",
+"en": "Fox"
+},
+{
+"id": "0d:4c81",
+"en": "Shaobai"
+},
+{
+"id": "0d:4c88",
+"en": "Shu Z."
+},
+{
+"id": "0d:4c8d",
+"en": "Hun"
+},
+{
+"id": "0d:4c92",
+"en": "Lieut."
+},
+{
+"id": "0d:4c99",
+"en": "Yin Pobai"
+},
+{
+"id": "0d:4c9f",
+"en": "LeiKai"
+},
+{
+"id": "0d:4ca4",
+"en": "Gongbao"
+},
+{
+"id": "0d:4caa",
+"en": "Marten"
+},
+{
+"id": "0d:4caf",
+"en": "Naga"
+},
+{
+"id": "0d:4cb3",
+"en": "Prawn"
+},
+{
+"id": "0d:4cb8",
+"en": "Ao Guang"
+},
+{
+"id": "0d:4cc1",
+"en": "Bing"
+},
+{
+"id": "0d:4cc5",
+"en": "Zhu"
+},
+{
+"id": "0d:4cca",
+"en": "Leopard"
+},
+{
+"id": "0d:4ccf",
+"en": "Taiyi"
+},
+{
+"id": "0d:4cd8",
+"en": "Li Jing"
+},
+{
+"id": "0d:4cdd",
+"en": "Gnat"
+},
+{
+"id": "0d:4ce3",
+"en": "Fiend"
+},
+{
+"id": "0d:4ce8",
+"en": "Phoenix"
+},
+{
+"id": "0d:4cee",
+"en": "Y. Turban"
+},
+{
+"id": "0d:4cf6",
+"en": "Fulong Sage"
+},
+{
+"id": "0d:4cfd",
+"en": "Houhu"
+},
+{
+"id": "0d:4d04",
+"en": "Guifang"
+},
+{
+"id": "0d:4d0b",
+"en": "Sergeant"
+},
+{
+"id": "0d:4d12",
+"en": "Wuyan"
+},
+{
+"id": "0d:4d17",
+"en": "N. Dragon"
+},
+{
+"id": "0d:4d1f",
+"en": "S. Dragon"
+},
+{
+"id": "0d:4d27",
+"en": "W. Dragon"
+},
+{
+"id": "0d:4d2f",
+"en": "Wen"
+},
+{
+"id": "0d:4d33",
+"en": "Wang"
+},
+{
+"id": "0d:4d37",
+"en": "Yang"
+},
+{
+"id": "0d:4d3b",
+"en": "Youqian"
+},
+{
+"id": "0d:4d42",
+"en": "Li Xingba"
+},
+{
+"id": "0d:4d49",
+"en": "Lady Shiji"
+},
+{
+"id": "0d:4d51",
+"en": "Camel"
+},
+{
+"id": "0d:4d56",
+"en": "Daji"
+},
+{
+"id": "0d:4d5b",
+"en": "Hu Ximei"
+},
+{
+"id": "0d:4d62",
+"en": "Jiugong"
+},
+{
+"id": "0d:4d69",
+"en": "Yuyi"
+},
+{
+"id": "0d:4d6f",
+"en": "Jade Qilin"
+},
+{
+"id": "0d:4d74",
+"en": "Xuhu"
+},
+{
+"id": "0d:4d79",
+"en": "Black"
+},
+{
+"id": "0d:4d7d",
+"en": "White"
+},
+{
+"id": "0d:4d82",
+"en": "Blue"
+},
+{
+"id": "0d:4d86",
+"en": "Whale"
+},
+{
+"id": "0d:4d8b",
+"en": "Su Hu"
+},
+{
+"id": "0d:4d90",
+"en": "Lingya"
+},
+{
+"id": "0d:4d97",
+"en": "Wuyun"
+},
+{
+"id": "0d:4d9c",
+"en": "Jinguang"
+},
+{
+"id": "0d:4da1",
+"en": "Lingya"
+},
+{
+"id": "0d:4da8",
+"en": "White Tiger"
+},
+{
+"id": "0d:4db1",
+"en": "Gongming"
+},
+{
+"id": "0d:4db6",
+"en": "Gold Ape"
+},
+{
+"id": "0d:4dbd",
+"en": "Gold Turtle"
+},
+{
+"id": "0d:4dc4",
+"en": "Pangu"
+},
+{
+"id": "0d:4dc9",
+"en": "Nuwa"
+},
+{
+"id": "0d:4dce",
+"en": "9-Tail Fox"
+},
+{
+"id": "0d:4dd6",
+"en": "Jinling"
+},
+{
+"id": "0d:4ddd",
+"en": "Guiling"
+},
+{
+"id": "0d:4de4",
+"en": "Wudang"
+},
+{
+"id": "0d:4dec",
+"en": "10 Lords"
+},
+{
+"id": "0d:4df3",
+"en": "Tongtian"
+},
+{
+"id": "0d:4dfb",
+"en": "Tongtian"
+},
+{
+"id": "0d:4e03",
+"en": "Sky King"
+},
+{
+"id": "0d:4e09",
+"en": "Beast"
+},
+{
+"id": "0d:4e0e",
+"en": "Huang Feihu"
+},
+{
+"id": "0d:4e16",
+"en": "Sergeant"
+},
+{
+"id": "0d:4e1d",
+"en": "Xingsun"
+},
+{
+"id": "0d:4e24",
+"en": "Chanyu"
+},
+{
+"id": "0d:4e2b",
+"en": "Taboo"
+},
+{
+"id": "0d:4e2f",
+"en": "Sibuxiang"
+},
+{
+"id": "0d:53ea",
+"en": "Daji"
+},
+{
+"id": "0d:57ba",
+"en": "Longlai Htl"
+},
+{
+"id": "0d:57c2",
+"en": "Salon"
+},
+{
+"id": "0d:57cb",
+"en": "Zhaoge Outer"
+},
+{
+"id": "0d:57d5",
+"en": "Zhaoge Inner"
+},
+{
+"id": "0d:57df",
+"en": "Zhaoge Palace"
+},
+{
+"id": "0d:57e9",
+"en": "Shu Hall"
+},
+{
+"id": "0d:57f0",
+"en": "Path"
+},
+{
+"id": "0d:57f5",
+"en": "Salon Maze"
+},
+{
+"id": "0d:57ff",
+"en": "Spider Nest"
+},
+{
+"id": "0d:5805",
+"en": "Songmen"
+},
+{
+"id": "0d:580a",
+"en": "Youli Dungeon"
+},
+{
+"id": "0d:5815",
+"en": "Lintong"
+},
+{
+"id": "0d:581b",
+"en": "Yuxu Pal."
+},
+{
+"id": "0d:5822",
+"en": "Xiqi Outer"
+},
+{
+"id": "0d:582a",
+"en": "Xiqi Inner"
+},
+{
+"id": "0d:5832",
+"en": "Xiqi Palace"
+},
+{
+"id": "0d:583a",
+"en": "Kunlun"
+},
+{
+"id": "0d:5840",
+"en": "Mt.Zhong"
+},
+{
+"id": "0d:5846",
+"en": "De'an Vil."
+},
+{
+"id": "0d:584d",
+"en": "Trial Cave"
+},
+{
+"id": "0d:5856",
+"en": "Dragon Cv."
+},
+{
+"id": "0d:585e",
+"en": "Sea Palace"
+},
+{
+"id": "0d:5866",
+"en": "Lost Woods"
+},
+{
+"id": "0d:586e",
+"en": "Jiuwan"
+},
+{
+"id": "0d:5873",
+"en": "Jiuwan River"
+},
+{
+"id": "0d:587a",
+"en": "Golden Cave"
+},
+{
+"id": "0d:5882",
+"en": "Path"
+},
+{
+"id": "0d:5887",
+"en": "Chentang Town"
+},
+{
+"id": "0d:5891",
+"en": "Li Manor"
+},
+{
+"id": "0d:5897",
+"en": "Qingfeng"
+},
+{
+"id": "0d:589e",
+"en": "Trial Cave"
+},
+{
+"id": "0d:58a7",
+"en": "Qing Lake"
+},
+{
+"id": "0d:58ad",
+"en": "Wufeng"
+},
+{
+"id": "0d:58b4",
+"en": "Mengxia"
+},
+{
+"id": "0d:58ba",
+"en": "Turban Den"
+},
+{
+"id": "0d:58c3",
+"en": "Feilong"
+},
+{
+"id": "0d:58c9",
+"en": "Xiqi Suburbs"
+},
+{
+"id": "0d:58d1",
+"en": "Jialong"
+},
+{
+"id": "0d:58d8",
+"en": "Sealed Cave"
+},
+{
+"id": "0d:58e1",
+"en": "Path"
+},
+{
+"id": "0d:58e6",
+"en": "Chentang Path"
+},
+{
+"id": "0d:58f0",
+"en": "Xiqi Battlefield"
+},
+{
+"id": "0d:58fc",
+"en": "Shang Jail"
+},
+{
+"id": "0d:5905",
+"en": "Kuafeng"
+},
+{
+"id": "0d:590b",
+"en": "Trial Cave"
+},
+{
+"id": "0d:5914",
+"en": "Qingfeng"
+},
+{
+"id": "0d:591a",
+"en": "Ziyang"
+},
+{
+"id": "0d:5920",
+"en": "Xiqi Under"
+},
+{
+"id": "0d:592a",
+"en": "Zhaoge Plains"
+},
+{
+"id": "0d:5934",
+"en": "Xiqi Palace Hall"
+},
+{
+"id": "0d:5940",
+"en": "Path"
+},
+{
+"id": "0d:5945",
+"en": "Xiqi Outer"
+},
+{
+"id": "0d:594d",
+"en": "Xiqi Inner"
+},
+{
+"id": "0d:5955",
+"en": "Xiqi Palace"
+},
+{
+"id": "0d:595d",
+"en": "Xiqi Suburbs"
+},
+{
+"id": "0d:5965",
+"en": "Yuxu Pal."
+},
+{
+"id": "0d:596c",
+"en": "Jushan"
+},
+{
+"id": "0d:5973",
+"en": "Star Twr"
+},
+{
+"id": "0d:597a",
+"en": "Sanshan"
+},
+{
+"id": "0d:5981",
+"en": "Jiulong"
+},
+{
+"id": "0d:5988",
+"en": "Path"
+},
+{
+"id": "0d:598d",
+"en": "Trial Cave"
+},
+{
+"id": "0d:5996",
+"en": "Jiu Cave"
+},
+{
+"id": "0d:599d",
+"en": "Xuanyun"
+},
+{
+"id": "0d:59a4",
+"en": "Jiulong Ferry"
+},
+{
+"id": "0d:59af",
+"en": "Zhaoge Pal."
+},
+{
+"id": "0d:59b7",
+"en": "Zhaoge In."
+},
+{
+"id": "0d:59bf",
+"en": "Qianyuan"
+},
+{
+"id": "0d:59c5",
+"en": "Golden Cave"
+},
+{
+"id": "0d:59cd",
+"en": "Chentang Town"
+},
+{
+"id": "0d:59d7",
+"en": "Chentang Path"
+},
+{
+"id": "0d:59e1",
+"en": "Li Manor"
+},
+{
+"id": "0d:59e7",
+"en": "Sanshan"
+},
+{
+"id": "0d:59ee",
+"en": "Jizhou"
+},
+{
+"id": "0d:59f4",
+"en": "Mt. Qilin"
+},
+{
+"id": "0d:59fa",
+"en": "Huolin"
+},
+{
+"id": "0d:5a01",
+"en": "Trial Cave"
+},
+{
+"id": "0d:5a0a",
+"en": "Peach Vil"
+},
+{
+"id": "0d:5a10",
+"en": "Peaches"
+},
+{
+"id": "0d:5a16",
+"en": "Yinmeng Lake Hut"
+},
+{
+"id": "0d:5a22",
+"en": "Lakebed"
+},
+{
+"id": "0d:5a2b",
+"en": "Jiameng"
+},
+{
+"id": "0d:5a31",
+"en": "Path"
+},
+{
+"id": "0d:5a36",
+"en": "Sky"
+},
+{
+"id": "0d:5a3b",
+"en": "Zhaoge Pal."
+},
+{
+"id": "0d:5a43",
+"en": "Path"
+},
+{
+"id": "0d:5a48",
+"en": "Old Tomb"
+},
+{
+"id": "0d:5a51",
+"en": "Homesick"
+},
+{
+"id": "0d:5a58",
+"en": "Homesick"
+},
+{
+"id": "0d:5a5f",
+"en": "Tiger Wd."
+},
+{
+"id": "0d:5a66",
+"en": "Juelong"
+},
+{
+"id": "0d:5a6d",
+"en": "Zhaoge Pal."
+},
+{
+"id": "0d:5a75",
+"en": "Array"
+},
+{
+"id": "0d:5a7b",
+"en": "Heishan"
+},
+{
+"id": "0d:5a82",
+"en": "Zhaoge Out."
+},
+{
+"id": "0d:5a8a",
+"en": "Zhaoge In."
+},
+{
+"id": "0d:5a92",
+"en": "Path"
+},
+{
+"id": "0d:5a97",
+"en": "Star Tower"
+},
+{
+"id": "0d:5aa2",
+"en": "Star Twr"
+},
+{
+"id": "0d:5aa9",
+"en": "Trial Cave"
+},
+{
+"id": "0d:5ab2",
+"en": "Tongtian Ext."
+},
+{
+"id": "0d:5abc",
+"en": "Tongtian"
+},
+{
+"id": "0d:5ac2",
+"en": "Kunlun"
+},
+{
+"id": "0d:5ac8",
+"en": "Kaitian"
+},
+{
+"id": "0d:5acf",
+"en": "Juelong"
+},
+{
+"id": "0d:5ad6",
+"en": "Songmen"
+}
+]

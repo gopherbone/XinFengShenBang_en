@@ -43,6 +43,17 @@ SECTION "E7Patch", ROM0[$1FF5]
 SECTION "EFPatch", ROM0[$22DF]
     jp Hook_EF
 
+; --- Menu/battle text interpreter (system 2) ---------------------------
+; $08CA: string entry (orig: call $0299 / push hl / [loop at $08CE])
+SECTION "Str2Patch", ROM0[$08CA]
+    jp Hook_Str2
+; $08DB: glyph output (orig: jp $0B02)
+SECTION "Char2Patch", ROM0[$08DB]
+    jp Hook_Char2
+; $0AE8: EA inline name substitution (orig: ld a, $0d / rst $20)
+SECTION "EAPatch", ROM0[$0AE8]
+    call Hook_EA
+
 ; =====================================================================
 ; Bank 0 hook code (free space at the end of bank 0)
 ; =====================================================================
@@ -107,6 +118,80 @@ Hook_Name::
     ld a, $0D
     rst $20
     jp $1E4E
+
+; --- System 2 hooks -----------------------------------------------------
+; Entry of the menu/battle interpreter. Strings can nest (names inserted by
+; control codes call back in here), so the caller's bank and the English
+; flag are saved and restored around each string.
+Hook_Str2::
+    call $0299
+    ld a, [$7FFF]
+    push af
+    ld a, [wEnglish2]
+    push af
+    ld a, [$7FFF]
+    ld [wOrigBank], a
+    ld a, l
+    ld [wOrigPtr], a
+    ld a, h
+    ld [wOrigPtr + 1], a
+    call LookupMsg
+    jr nc, .notFound
+    ld b, a
+    ld a, 1
+    ld [wEnglish2], a
+    ld a, b
+    rst $20
+    jr .run
+.notFound
+    xor a
+    ld [wEnglish2], a
+    ld a, [wOrigPtr]
+    ld l, a
+    ld a, [wOrigPtr + 1]
+    ld h, a
+    ld a, [wOrigBank]
+    rst $20
+.run
+    call .interp
+    pop af
+    ld [wEnglish2], a
+    pop af
+    rst $20
+    ret
+.interp
+    push hl
+    jp $08CE
+
+Hook_Char2::
+    ld b, a
+    ld a, [wEnglish2]
+    and a
+    ld a, b
+    jp z, $0B02
+    ld [$D052], a
+    ld a, [$7FFF]
+    push af
+    ld a, BANK_VWF
+    rst $20
+    call VWF_Char2
+    pop af
+    rst $20
+    jp $08CE
+
+; EA: insert the name at [$D037] (bank $0D). In English mode use the
+; English copy from the VWF bank instead.
+Hook_EA::
+    ld a, [wEnglish2]
+    and a
+    jr nz, .en
+    ld a, $0D
+    rst $20
+    ret
+.en
+    ld a, BANK_VWF
+    rst $20
+    jp VWF_MapName
 
 Hook_End::
     xor a
@@ -192,7 +277,7 @@ LookupMsg:
 ; English substrings referenced by the script (bank 0, always mapped).
 ; Bytes $01-$0E move the pen to x = n*8 within the line.
 EnStrYesNo::
-    db 3, "Yes", 9, "No", $E6
+    db 4, "Yes", 10, "No", $E6
 EnStrServe::
     db 2, "Items", 8, "Treasure", $E8
 
@@ -259,18 +344,32 @@ VWF_Char::
     ret nz
     jp $0299                ; wait one frame
 
-; a = new pen x
+; a = new pen x. Moving forward to a later cell finishes the current cell
+; and uploads blank tiles for every cell passed over, so shorter English
+; strings also erase the rest of their original slot.
 VWF_SetX:
     ld [wVwfX], a
     swap a
     and $0F
+    ld [wTargetCell], a
+.next
+    ld a, [wTargetCell]
     ld b, a
     ld a, [wCurCell]
     cp b
-    ret z
-    ld a, b
+    ret nc                  ; same cell (or backwards): keep the buffer
+    inc a
     ld [wCurCell], a
-    jp ClearCellBuf
+    call ClearCellBuf
+    ld a, [wCurCell]
+    ld b, a
+    ld a, [wTargetCell]
+    cp b
+    ret z                   ; arrived: new cell stays empty, not uploaded yet
+    ld a, [wCurCell]
+    ld hl, wCellBuf
+    call UploadCell         ; blank intermediate cell
+    jr .next
 
 ; Renders the name for speaker [$CBF7] into tiles $E0-$EF.
 VWF_Name::
@@ -304,6 +403,108 @@ VWF_Name::
 .done
     ld a, BODY_CELLS
     ld [wMaxCells], a
+    ret
+
+; System 2 glyph. Slot tiles are [$D08B] + [$D055]; [$D055] counts tiles.
+; Control bytes $01-$1F move to the start of cell n of the slot (used to
+; start new lines in multi-line boxes); wLineCell is that cell offset.
+VWF_Char2::
+    ld a, [$D055]
+    and a
+    jr z, .fresh
+    ld b, a
+    ld a, [wD055Exp]
+    cp b
+    jr z, .cont
+    ld a, b                 ; someone else advanced the slot: resume there
+    srl a
+    srl a
+    jr .start
+.fresh
+    xor a
+.start
+    ld [wLineCell], a
+    xor a
+    ld [wCurCell], a
+    ld [wVwfX], a
+    call ClearCellBuf
+.cont
+    xor a
+    ld [wPlaceMap], a
+    ld a, 16
+    ld [wMaxCells], a
+    ld a, [$D052]
+    cp $20
+    jr nc, .glyph
+    ld [wLineCell], a       ; new line: restart at cell n
+    xor a
+    ld [wCurCell], a
+    ld [wVwfX], a
+    call ClearCellBuf
+    jr .done
+.glyph
+    call SetTileBase2
+    call RenderGlyph
+.done
+    ld a, [wVwfX]
+    and $0F
+    ld b, 0
+    jr z, .exact
+    inc b
+.exact
+    ld a, [wCurCell]
+    add b
+    ld b, a
+    ld a, [wLineCell]
+    add b
+    add a
+    add a
+    ld [$D055], a
+    ld [wD055Exp], a
+    ret
+
+SetTileBase2:
+    ld a, [wLineCell]
+    add a
+    add a
+    ld b, a
+    ld a, [$D08B]
+    add b
+    ld [wTileBase], a
+    ret
+
+; [$D037] = Chinese name pointer (bank $0D) -> English copy, if known.
+VWF_MapName::
+    ld a, [$D037]
+    ld e, a
+    ld a, [$D038]
+    ld d, a
+    ld hl, NameSrcTable
+    ld bc, 0
+.loop
+    ld a, [hli]
+    cp e
+    jr nz, .next
+    ld a, [hl]
+    cp d
+    jr z, .found
+.next
+    inc hl
+    inc c
+    ld a, c
+    cp NAME_COUNT
+    jr nz, .loop
+    ld a, $0D               ; unknown: keep the original
+    rst $20
+    ret
+.found
+    ld hl, Name2Table
+    add hl, bc
+    add hl, bc
+    ld a, [hli]
+    ld [$D037], a
+    ld a, [hl]
+    ld [$D038], a
     ret
 
 ClearCellBuf:
@@ -443,7 +644,13 @@ UploadCell:
     swap a
     ld d, a
     and $0F
+    cp $08
+    jr nc, .hi
+    or $90                  ; tiles $00-$7F live at $9000 (signed mode)
+    jr .addr
+.hi
     or $80
+.addr
     ld [$D0E5], a
     ld a, d
     and $F0

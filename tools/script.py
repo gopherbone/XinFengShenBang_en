@@ -1,6 +1,6 @@
 """English script encoding and insertion."""
 import json, os, glob, re
-import textdump
+import textdump, menutext
 from fontlib import ROOT, text_width
 
 LINE_PX = 112
@@ -79,6 +79,73 @@ def encode_message(boxes, tail, en, font, syms):
         out.append(tail[1])
     return out
 
+DESC_LINE_PX = 144   # item/treasure description box: 2 lines x 9 cells
+
+def pad_slot(en, cells, font):
+    """Spaces that blank the rest of the original slot after a shorter
+    English string (space = 4px)."""
+    used_px = text_width(sanitize(en), font)
+    spare = cells * 16 - used_px
+    return b" " * ((spare + 3) // 4) if spare > 0 else b""
+
+PROLOGUE = (0x26, 0x5FA2)
+
+def encode_prologue(en, font, cells_per_line=8, lines_per_page=5, ee_per_page=40):
+    """Typewriter prologue. Lines start at cell n*8 (pen code); every page
+    but the last carries exactly 40 EE delays so the game's page clear
+    (after 40 EEs) lines up with the English layout."""
+    lines = []
+    for chunk in sanitize(en).split("|"):          # "|" = force new page
+        cur = ""
+        for w in chunk.split():
+            c = (cur + " " + w).strip()
+            if text_width(c, font) <= cells_per_line * 16: cur = c
+            else: lines.append(cur); cur = w
+        if cur: lines.append(cur)
+        while len(lines) % lines_per_page: lines.append("")
+    while lines and not lines[-1]: lines.pop()
+    pages = [lines[i:i + lines_per_page] for i in range(0, len(lines), lines_per_page)]
+    out = bytearray()
+    for pi, pg in enumerate(pages):
+        last = pi == len(pages) - 1
+        chars = [(li, ch) for li, l in enumerate(pg) for ch in l]
+        n = len(chars)
+        ee = {}
+        if not last:
+            for k in range(ee_per_page):
+                i = max(0, (k + 1) * n // ee_per_page - 1); ee[i] = ee.get(i, 0) + 1
+        else:
+            ee = {i: 1 for i in range(2, n, 3)}
+        cur = 0
+        for i, (li, ch) in enumerate(chars):
+            if li != cur:
+                out.append(li * cells_per_line); cur = li
+            out.append(ord(ch))
+            out += bytes([0xEE] * ee.get(i, 0))
+    return out
+
+def load_menu():
+    en = {}
+    for p in sorted(glob.glob(os.path.join(SCRIPT_DIR, "menu", "*.json"))):
+        for e in json.load(open(p, encoding="utf8")):
+            if e.get("en"): en[e["id"]] = e["en"]
+    return en
+
+def encode_menu(en, zh, font):
+    """Menu string -> bytes (without terminator). Descriptions get wrapped
+    onto the second line of their box with a pen move."""
+    en = sanitize(en)
+    if zh.startswith(("法寶：", "道具：")) and "[" not in en:
+        words = en.split(); l1 = ""
+        while words and text_width((l1 + " " + words[0]).strip(), font) <= DESC_LINE_PX:
+            l1 = (l1 + " " + words.pop(0)).strip()
+        out = bytearray(l1.encode())
+        if words:
+            out.append(DESC_LINE_PX // 16)
+            out += " ".join(words).encode()
+        return out
+    return menutext.encode(en, None)
+
 def insert(rom, font, syms, first_bank, lookup_bank):
     msgs = textdump.collect(rom)
     en = load_translations()
@@ -94,6 +161,39 @@ def insert(rom, font, syms, first_bank, lookup_bank):
         o = bank * 0x4000 + pos - 0x4000
         rom[o:o + len(data)] = data
         placed[mid] = (bank, pos); pos += len(data)
+    # menu / battle strings
+    mstr = menutext.collect(rom)
+    men = load_menu()
+    names = load_names()
+    for i, n in enumerate(names):          # speaker-name table, used by menus too
+        o = 0xD * 0x4000 + 0xE34 + 2 * i
+        mid = f"0d:{rom[o] | rom[o + 1] << 8:04x}"
+        if n and mid not in men: men[mid] = n
+    menu_placed = 0
+    pid = f"{PROLOGUE[0]:02x}:{PROLOGUE[1]:04x}"
+    if pid in men:
+        mstr[pid] = dict(zh="", cells=0, end=None, prologue=True)
+    for mid in sorted(men):
+        if mid not in mstr: continue
+        info = mstr[mid]
+        ob, oa = (int(x, 16) for x in mid.split(":"))
+        if info.get("prologue"):
+            data = encode_prologue(men[mid], font) + bytes([0xEF])
+            if pos + len(data) > 0x7FFF: bank += 1; pos = 0x4000
+            o = bank * 0x4000 + pos - 0x4000
+            rom[o:o + len(data)] = data
+            placed[mid] = (bank, pos); pos += len(data); menu_placed += 1
+            continue
+        term = rom[ob * 0x4000 + info["end"] - 1 - 0x4000]
+        data = encode_menu(men[mid], info["zh"], font)
+        if 0 < info["cells"] <= 15 and "[" not in men[mid] and not info["zh"].startswith(("法寶：", "道具：")):
+            data += pad_slot(men[mid], info["cells"], font)
+        data += bytes([term])
+        if pos + len(data) > 0x7FFF:
+            bank += 1; pos = 0x4000
+        o = bank * 0x4000 + pos - 0x4000
+        rom[o:o + len(data)] = data
+        placed[mid] = (bank, pos); pos += len(data); menu_placed += 1
     # lookup tables: index in lookup_bank, subtables packed after it
     by_bank = {}
     for mid, (nb, na) in placed.items():
@@ -112,5 +212,5 @@ def insert(rom, font, syms, first_bank, lookup_bank):
         rom[o:o + len(blob)] = blob
         rom[idx + ob * 3: idx + ob * 3 + 3] = bytes([tb, tp & 0xFF, tp >> 8])
         tp += len(blob)
-    return dict(messages=len(msgs), inserted=len(placed), missing=missing,
+    return dict(menu=menu_placed, messages=len(msgs), inserted=len(placed), missing=missing,
                 last_bank=hex(bank), table_end=(hex(tb), hex(tp)))
