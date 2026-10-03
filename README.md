@@ -37,7 +37,7 @@ More in [`docs/screenshots/`](docs/screenshots/).
 - Item, relic (法寶) and summon-beast names and descriptions, enemy names, battle messages, location names, the
   shop and Yes/No choices, the save screen and the opening prologue.
 - Pre-drawn graphics: the field menu, Silver counter, status, item, equipment and party screens, the battle
-  command menu, the signpost header and the title screen's New Game option.
+  command menu, the signpost header and the title screen's New Game and Continue options.
 - Character names are romanized (Ji Pingyan, Yin Wen, Ji Xiaojun, Jiang Ziya, Nezha, Yang Jian…), and places use
   pinyin plus an English word (Mt. Kunlun, Chentang Pass, Mengxiang). See [`script/glossary.md`](script/glossary.md).
 
@@ -54,8 +54,8 @@ This patch doesn't include the game. Use your own copy of:
 | SHA-1 | `78ad577c4bb2791646186b7c197ffb678e856a90` |
 | Header title | `SHAWU STORY` |
 
-The patch expands the ROM to 4 MiB. The patched ROM has CRC32 `5BE03AC2`
-(SHA-1 `c349dc83278d5729eba5ade35e441514fc7048d7`). Both header checksums are valid.
+The patch expands the ROM to 4 MiB. The patched ROM has CRC32 `9F3CD9C3`
+(SHA-1 `ae0f2fa5eff190538af3bac6945044225d05e8a4`). Both header checksums are valid.
 
 ## How to patch
 

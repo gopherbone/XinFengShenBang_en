@@ -4,6 +4,8 @@ DEF BANK_VWF     EQU $80     ; VWF renderer, font, speaker names
 DEF BANK_LOOKUP  EQU $81     ; message redirect table
 DEF FIRST_TEXT_BANK EQU $83  ; English script banks start here ($81-$82: lookup)
 DEF LOOKUP_INDEX EQU $4000
+DEF LOC_TABLE    EQU $53F1   ; bank $0D location-name pointer table
+DEF LOC_COUNT    EQU 482
 
 DEF BODY_CELLS   EQU 7       ; 16px cells per dialogue line (112px)
 DEF NAME_CELLS   EQU 4       ; 16px cells in the speaker name field (64px)

@@ -179,6 +179,8 @@ Hook_Str2::
     ld [wOrigPtr], a
     ld a, h
     ld [wOrigPtr + 1], a
+    cp $C0
+    call nc, MatchWramLoc   ; strings copied into RAM (e.g. save slots)
     call LookupMsg
     jr nc, .notFound
     ld b, a
@@ -211,6 +213,53 @@ Hook_Str2::
 .interp
     push hl
     jp $08CE
+
+; A string in WRAM (save slots copy the saved location name out of SRAM):
+; find the identical Chinese string in the location table at $0D:53F1 and
+; use that entry's ROM address as the lookup key instead.
+MatchWramLoc:
+    ld a, $0D
+    rst $20
+    ld hl, LOC_TABLE
+    ld bc, LOC_COUNT
+.entry
+    ld a, [hli]
+    ld e, a
+    ld a, [hli]
+    ld d, a                 ; de = candidate string in bank $0D
+    push hl
+    push bc
+    ld a, [wOrigPtr]
+    ld l, a
+    ld a, [wOrigPtr + 1]
+    ld h, a
+.cmp
+    ld a, [de]
+    cp [hl]
+    jr nz, .noMatch
+    inc de
+    inc hl
+    cp $ED
+    jr nz, .cmp
+    pop bc                  ; match: key = (bank $0D, table entry)
+    pop hl
+    dec hl
+    dec hl
+    ld a, [hli]
+    ld [wOrigPtr], a
+    ld a, [hl]
+    ld [wOrigPtr + 1], a
+    ld a, $0D
+    ld [wOrigBank], a
+    ret
+.noMatch
+    pop bc
+    pop hl
+    dec bc
+    ld a, b
+    or c
+    jr nz, .entry
+    ret
 
 Hook_Char2::
     ld b, a
