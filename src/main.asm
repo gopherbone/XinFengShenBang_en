@@ -219,6 +219,21 @@ Hook_Char2::
     ld a, b
     jp z, $0B02
     ld [$D052], a
+    cp " "
+    jr nz, .go
+    ld hl, sp + 0           ; space: copy the next word (text ptr on stack)
+    ld a, [hli]             ; for the battle-line word-wrap lookahead
+    ld h, [hl]
+    ld l, a
+    ld de, wLook
+    ld c, LOOK_LEN
+.look
+    ld a, [hli]
+    ld [de], a
+    inc de
+    dec c
+    jr nz, .look
+.go
     ld a, [$7FFF]
     push af
     ld a, BANK_VWF
@@ -400,7 +415,7 @@ Hook_Insert:
     jr nc, .done
     rst $20
     ld de, wStr3Buf
-    ld c, 40
+    ld c, 24
 .copy
     ld a, [hli]
     cp $11                  ; drop slot-padding / pen codes
@@ -705,6 +720,9 @@ VWF_Char2::
     ld [wVwfX], a
     jr .done
 .glyph
+    cp " "
+    call z, WrapBattleLine  ; may start line 2 instead of drawing the space
+    jr c, .done
     call SetTileBase2
     call RenderGlyph
 .done
@@ -765,6 +783,71 @@ VWF_Pad2:
     ld [wCurCell], a
     ld [wVwfX], a
     jp ClearCellBuf
+
+; At a space in an indented battle line (2 lines x BATTLE_LINE_CELLS cells),
+; measure the next word from wLook; if it won't fit on line 1, move to the
+; start of line 2 instead. Carry set = space consumed.
+WrapBattleLine:
+    ld a, [wIndent]
+    and a
+    ret z                   ; (carry clear) only battle message lines
+    ld a, [wLineCell]
+    cp BATTLE_LINE_CELLS
+    ret nc                  ; already on line 2 (carry clear)
+    ld hl, wLook
+    ld b, 0                 ; word width
+    ld c, LOOK_LEN
+.measure
+    ld a, [hli]
+    cp $E0
+    jr nc, .ctrl
+    cp $21
+    jr c, .measured         ; space or pen code ends the word
+    sub $20
+    ld e, a
+    ld d, 0
+    push hl
+    ld hl, FontWidths
+    add hl, de
+    ld a, [hl]
+    pop hl
+    add b
+    ld b, a
+    dec c
+    jr nz, .measure
+    jr .measured
+.ctrl
+    cp $E4                  ; name/item inserts: assume a typical width
+    jr z, .measured
+    cp $ED
+    jr z, .measured
+    cp $E2
+    jr z, .measured
+    ld a, b
+    add 48
+    ld b, a
+.measured
+    ld a, [wLineCell]       ; pen position in the line
+    swap a
+    ld c, a
+    ld a, [wVwfX]
+    add c
+    add 4                   ; the space itself
+    add b
+    jr c, .wrap
+    cp BATTLE_LINE_CELLS * 16 + 1
+    ccf
+    ret nc                  ; fits: draw the space normally
+.wrap
+    ld a, BATTLE_LINE_CELLS
+    ld [wLineCell], a
+    xor a
+    ld [wCurCell], a
+    ld a, [wIndent]
+    ld [wVwfX], a
+    call ClearCellBuf
+    scf
+    ret
 
 SetTileBase2:
     ld a, [wLineCell]

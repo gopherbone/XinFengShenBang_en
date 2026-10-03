@@ -8,6 +8,8 @@ DEF LOOKUP_INDEX EQU $4000
 DEF BODY_CELLS   EQU 7       ; 16px cells per dialogue line (112px)
 DEF NAME_CELLS   EQU 4       ; 16px cells in the speaker name field (64px)
 DEF BATTLE_INDENT EQU 4     ; left margin of battle message lines (px)
+DEF BATTLE_LINE_CELLS EQU 7 ; cells per line in the battle message box
+DEF LOOK_LEN     EQU 16      ; word-wrap lookahead bytes
 
 ; WRAM (verified unused by the original game)
 DEF wEnglish     EQU $D780   ; 1 while an English message is being shown
@@ -31,5 +33,6 @@ DEF wStrTop      EQU $D7D2   ; system 2: string began its own slot
 DEF wStrDepth    EQU $D7D3   ; system 2 nesting depth
 DEF wIndent      EQU $D7D4   ; system 2: pen indent for fresh slots (battle box)
 DEF wSubBank     EQU $D7D5   ; English text bank during an E3/EA/EB insert
-DEF wStr3Buf     EQU $D7D6   ; 42 bytes: English location / insert string copy
+DEF wStr3Buf     EQU $D7D6   ; 26 bytes: English location / insert string copy
+DEF wLook        EQU $D7F0   ; 16 bytes: next word, for battle-line wrap
 DEF wCellBuf     EQU $D790   ; 64 bytes: current cell + next cell
