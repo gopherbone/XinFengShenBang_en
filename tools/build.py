@@ -6,7 +6,7 @@ import fontlib, script, labels, mkips
 
 ROOT = fontlib.ROOT
 BUILD = os.path.join(ROOT, "build")
-ORIG = os.path.join(ROOT, "Xin Feng Shen Bang (Unlicensed, Chinese) (Multicart Rip) [Header Fix].gbc")
+ORIG = os.path.join(ROOT, "orig", "xfsb.gbc")   # original ROM (not in git)
 OUT = os.path.join(BUILD, "XinFengShenBang_en.gbc")
 BANK_VWF, BANK_LOOKUP, FIRST_TEXT_BANK = 0x80, 0x81, 0x83
 NBANKS = 256

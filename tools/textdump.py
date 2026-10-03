@@ -6,7 +6,7 @@ codes, everything else is a glyph index in the current page.
 import json, os
 from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ORIG = os.path.join(ROOT, "Xin Feng Shen Bang (Unlicensed, Chinese) (Multicart Rip) [Header Fix].gbc")
+ORIG = os.path.join(ROOT, "orig", "xfsb.gbc")   # original ROM (not in git)
 T = json.load(open(os.path.join(ROOT, "tools", "glyph_table.json"), encoding="utf8"))
 SCRIPT_BANKS = [0x08, 0x11, 0x1B, 0x1D, 0x4C, 0x4D, 0x4E, 0x4F, 0x51, 0x56,
                 0x57, 0x5A, 0x5B, 0x5C, 0x5D, 0x64, 0x65, 0x66]

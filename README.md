@@ -85,7 +85,8 @@ Play it on a Game Boy Color emulator (SameBoy, mGBA, Gambatte…) or on hardware
 
 You need Python 3 and [RGBDS](https://rgbds.gbdev.io/) (`rgbasm`, `rgblink`, `rgbfix`) on your `PATH`.
 
-1. Put the original ROM in the repository root (file name above).
+1. Put the original ROM (hashes above) at `orig/xfsb.gbc`. The `orig/` folder is git-ignored; the ROM is never
+   committed.
 2. `python3 tools/build.py` writes `build/XinFengShenBang_en.gbc`, `docs/xin-feng-shen-bang-en.ips` and its hash
    file.
 
@@ -121,4 +122,4 @@ You need Python 3 and [RGBDS](https://rgbds.gbdev.io/) (`rgbasm`, `rgblink`, `rg
 ## Legal
 
 This is an unofficial fan translation, not affiliated with the game's developer or publisher. Only a patch is
-distributed through the patcher page; no game code is included in it.
+distributed; no game code or ROM is included.
