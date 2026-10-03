@@ -1,71 +1,124 @@
-# Xin Feng Shen Bang (新封神榜) — English translation
+# Xin Feng Shen Bang: English translation of 新封神榜, Game Boy Color
 
-English translation patch for the Chinese GBC RPG *Xin Feng Shen Bang*, with a
-variable-width, mixed-case font.
+> [!IMPORTANT]
+> **This translation was made by AI.** The script, the reworked graphics and the code changes were produced by an
+> AI model (Anthropic's Claude), directed by a human. No professional or fluent human translator reviewed it, and it
+> hasn't been play-tested from start to finish, so expect mistakes, odd phrasing and the occasional bug.
+>
+> **If you enjoy fan translations, please support the humans who make them.** Play their releases, report bugs,
+> credit them, contribute to their projects, and check whether a human translation of a game exists before reaching
+> for an AI one. This patch is no substitute for their work.
 
-## Building
+**[Patch your ROM in the browser](https://gopherbone.github.io/XinFengShenBang_en/)**, or download the IPS patch
+[`docs/xin-feng-shen-bang-en.ips`](docs/xin-feng-shen-bang-en.ips).
 
-Requirements: Python 3, [RGBDS](https://rgbds.gbdev.io/) (`rgbasm`, `rgblink`, `rgbfix`) on `PATH`.
+Xin Feng Shen Bang ("New Investiture of the Gods") is an unlicensed Taiwanese Game Boy Color RPG: a comedic
+retelling of the classic *Investiture of the Gods* legend. Lazy, wisecracking Ji Pingyan, a distant descendant of
+King Wu of Zhou, gets dragged into the war between Zhou and Shang alongside Nezha, Yang Jian, Leizhenzi and the rest
+of the cast. This patch translates it into English.
 
-```sh
-python3 tools/build.py      # -> build/XinFengShenBang_en.gbc, patch/XinFengShenBang_en.ips
-```
+<p>
+<img src="docs/screenshots/dialogue.png" width="240" alt="Pa Ji urging Pingyan to hurry">
+<img src="docs/screenshots/battle.png" width="240" alt="Battle with the Fight, Relic, Def, Call, Item and Flee commands">
+<img src="docs/screenshots/relics.png" width="240" alt="Relic list with a description">
+</p>
+<p>
+<img src="docs/screenshots/prologue.png" width="240" alt="Typewriter prologue">
+<img src="docs/screenshots/status.png" width="240" alt="Status screen">
+<img src="docs/screenshots/sign.png" width="240" alt="Signpost with direction arrows">
+</p>
 
-A prebuilt IPS patch (`patch/XinFengShenBang_en.ips`) applies to the
-original ROM; the patched ROM is 4 MB (the patch carries the size).
+More in [`docs/screenshots/`](docs/screenshots/).
 
-The original ROM (`Xin Feng Shen Bang (Unlicensed, Chinese) (Multicart Rip) [Header Fix].gbc`)
-must be in the repository root.
+## What's translated
+
+- All dialogue (about 4,000 messages) and every signpost, drawn with a new proportional, mixed-case English
+  font with automatic word wrap and pagination.
+- Item, relic (法寶) and summon-beast names and descriptions, enemy names, battle messages, location names, the
+  shop and Yes/No choices, the save screen and the opening prologue.
+- Pre-drawn graphics: the field menu, Silver counter, status, item, equipment and party screens, the battle
+  command menu, the signpost header and the title screen's New Game option.
+- Character names are romanized (Ji Pingyan, Yin Wen, Ji Xiaojun, Jiang Ziya, Nezha, Yang Jian…), and places use
+  pinyin plus an English word (Mt. Kunlun, Chentang Pass, Mengxiang). See [`script/glossary.md`](script/glossary.md).
+
+## The ROM you need
+
+This patch doesn't include the game. Use your own copy of:
+
+| | |
+|---|---|
+| File name | `Xin Feng Shen Bang (Unlicensed, Chinese) (Multicart Rip) [Header Fix].gbc` |
+| Size | 2,097,152 bytes (2 MiB) |
+| CRC32 | `8C66647D` |
+| MD5 | `bac4383b8c96c4e6051075d3c0d6fd75` |
+| SHA-1 | `78ad577c4bb2791646186b7c197ffb678e856a90` |
+| Header title | `SHAWU STORY` |
+
+The patch expands the ROM to 4 MiB. The patched ROM has CRC32 `A4776DA7`
+(SHA-1 `0fa4780055f4112031be675848d5ea251b3ede29`). Both header checksums are valid.
+
+## How to patch
+
+- **In the browser:** open the [web patcher](https://gopherbone.github.io/XinFengShenBang_en/) and drop your ROM
+  on it. It checks the ROM, patches it locally (nothing is uploaded) and gives you the patched file.
+- **With an IPS patcher:** apply [`docs/xin-feng-shen-bang-en.ips`](docs/xin-feng-shen-bang-en.ips) to the ROM
+  above with Floating IPS, Lunar IPS, Rom Patcher JS or similar.
+
+Play it on a Game Boy Color emulator (SameBoy, mGBA, Gambatte…) or on hardware with a flash cart that supports
+4 MiB MBC5 ROMs.
+
+## Known issues
+
+- This is an AI translation; phrasing may be off in places. Corrections are welcome as issues or pull requests.
+- The Chinese script was decoded from the game's own font bitmaps, which were transcribed by eye. A few rare
+  characters may be misread, so some lines are translated from context.
+- Only the start of the game, the menus, a battle and a sample of signs and shop prompts were checked on screen.
+  Later lines were only checked by the build (that they fit and wrap), not seen in play.
+- Some menu slots are tiny, so labels and a few relic and beast names are abbreviated ("Stat", "Def", "Call" for
+  Summon, "D.Stake").
+- Left in Chinese because they're artwork: the 新封神榜 title logo, the large calligraphy name cards in the intro and
+  the 廣譽科技 publisher credit.
+- A small set of four-character strings in bank `$0A` uses its own tiny character set and is untranslated; it's
+  unclear where (or whether) they appear.
+
+## Building from source
+
+You need Python 3 and [RGBDS](https://rgbds.gbdev.io/) (`rgbasm`, `rgblink`, `rgbfix`) on your `PATH`.
+
+1. Put the original ROM in the repository root (file name above).
+2. `python3 tools/build.py` writes `build/XinFengShenBang_en.gbc`, `docs/xin-feng-shen-bang-en.ips` and its hash
+   file.
 
 ## How it works
 
-* The ROM is expanded from 2 MB to 4 MB (MBC5). New banks carry the game's
-  bank self-ID byte at `$7FFF`.
-* `src/main.asm` hooks the dialogue engine in bank 0:
-  * the message-start dispatcher (`$1C83`) looks each message up in a redirect
-    table (banks `$81-$82`) and, if translated, maps the English copy instead;
-  * the glyph output path (`$1CC9`) is diverted to a VWF renderer (bank `$80`)
-    while an English message is showing; untranslated text still uses the
-    original 16x16 Chinese renderer;
-  * speaker names (`$1E4B`) are rendered with the VWF from an English table;
-  * the shared Yes/No and Items/Treasures choice strings have English copies.
-* The VWF draws 1bpp glyphs into a 2-cell WRAM buffer and uploads cells with
-  the game's own HBlank-safe copier, reusing the original 16x16 cell/tile layout
-  of the text box (7 cells x 2 lines for dialogue, 4 cells for names).
-* `tools/build.py` compiles `font/font.txt`, assembles the hacks, word-wraps
-  and paginates the English script by pixel width (`tools/script.py`), packs it
-  into banks `$83+`, writes the lookup tables and fixes the checksums.
+- The ROM is expanded from 2 MiB to 4 MiB (MBC5). New banks carry the game's bank self-ID byte at `$7FFF`.
+- `src/main.asm` hooks the game's three text engines in bank 0: dialogue (`$1C96` loop), the menu/battle
+  interpreter (`$08CA`) and the location banner (bank `$0D`). Each looks the original `bank:address` up in a redirect
+  table (banks `$81-$82`) and, if there's an English version, reads it from banks `$83+` instead. Untranslated text
+  still goes through the original 16×16 Chinese renderer.
+- The variable-width renderer (bank `$80`) draws 1bpp glyphs into a two-cell WRAM buffer and uploads them with the
+  game's own HBlank-safe copier, reusing the original 16×16 cell layout of each text box. Shorter English strings
+  blank the rest of their original slot.
+- `tools/build.py` compiles `font/font.txt`, assembles the hacks, word-wraps and paginates the script by pixel width
+  (`tools/script.py`), packs it into the new banks, redraws the graphic labels (`tools/labels.py`,
+  `gfx/labels.json`), fixes the checksums and writes the IPS patch.
 
-## Files
+## Project layout
 
 | Path | Contents |
 |---|---|
-| `font/font.txt` | VWF font (original design), one ASCII-art glyph per character |
-| `script/dialogue/*.json` | English dialogue, keyed by original `bank:address` |
+| `src/` | ROM hooks and the variable-width text engine (RGBDS assembly) |
+| `font/font.txt` | The English font, one ASCII-art glyph per character (original design) |
+| `script/dialogue/` | English dialogue and signposts, keyed by original `bank:address` |
+| `script/menu/` | English menu, item, battle and location strings, and the prologue |
 | `script/names_en.txt` | Speaker names (index = original name-table index) |
 | `script/glossary.md` | Translation glossary |
+| `gfx/labels.json` | Graphic labels to redraw (ROM offset, tile layout, text, style) |
+| `tools/` | Builder, script parsers, label redrawer, width checker, IPS maker |
 | `tools/glyph_table.json` | Transcription of the original 2,189-glyph Chinese font |
-| `tools/textdump.py` | Parser for the original script format |
+| `docs/` | GitHub Pages site: web patcher, IPS patch, screenshots |
 
-## Text systems covered
+## Legal
 
-| System | Where | Notes |
-|---|---|---|
-| Dialogue (`$1C96` loop) | 18 script banks + signposts (bank `$0C`) | 4,042 messages, auto word-wrap/pagination, VWF |
-| Menu / battle interpreter (`$08CA`) | banks `$0D $1E $25 $2D`, prologue `$26` | items, treasures, beasts, descriptions, enemies, battle messages; English packed into the original tile slots |
-| Location banner (bank `$0D`) | `$0D:53F1` table | copied to WRAM, VWF |
-| Graphic labels | `gfx/labels.json` | main/status/item/equip/party/battle menus, sign header, title menu option |
-
-Large decorative calligraphy (title logo, intro name cards, publisher credit)
-is intentionally left as-is.
-
-## Status / known gaps
-
-* All dialogue, signs, menus, item/treasure/beast names and descriptions,
-  battle messages, location names and the prologue are translated.
-* The Chinese source was transcribed from the game's own font bitmaps; a few
-  rare glyphs may be misread, so some lines are interpreted from context.
-* Not yet verified by a full playthrough; lines that only appear late in the
-  game have only been checked by the build (fit/wrap), not on screen.
-* A small set of 4-glyph strings in bank `$0A` (own charset, purpose unknown)
-  is untouched.
+This is an unofficial fan translation, not affiliated with the game's developer or publisher. Only a patch is
+distributed through the patcher page; no game code is included in it.

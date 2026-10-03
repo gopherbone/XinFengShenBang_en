@@ -48,6 +48,21 @@ def read_sym(path):
         syms[name] = (int(b, 16), int(addr, 16))
     return syms
 
+def hashes(b):
+    import hashlib, zlib
+    return {"size": len(b), "crc32": f"{zlib.crc32(b) & 0xFFFFFFFF:08X}",
+            "md5": hashlib.md5(b).hexdigest(), "sha1": hashlib.sha1(b).hexdigest()}
+
+def write_release(orig, out):
+    """docs/ is the GitHub Pages site: IPS patch + hashes for the web patcher."""
+    ips = mkips.make_ips(orig, out)
+    docs = os.path.join(ROOT, "docs")
+    os.makedirs(docs, exist_ok=True)
+    open(os.path.join(docs, "xin-feng-shen-bang-en.ips"), "wb").write(ips)
+    meta = {"source": hashes(orig), "patched": hashes(out), "patch": hashes(ips)}
+    json.dump(meta, open(os.path.join(docs, "xin-feng-shen-bang-en.json"), "w"), indent=1)
+    print("patched ROM", meta["patched"]["crc32"], "patch", meta["patch"]["size"], "bytes")
+
 def main():
     os.makedirs(BUILD, exist_ok=True)
     rom = bytearray(open(ORIG, "rb").read())
@@ -69,9 +84,7 @@ def main():
     stats["labels"] = labels.apply_all(rom)
     open(OUT, "wb").write(rom)
     run("rgbfix", "-v", "build/XinFengShenBang_en.gbc")
-    ips = mkips.make_ips(open(ORIG, "rb").read(), open(OUT, "rb").read())
-    os.makedirs(os.path.join(ROOT, "patch"), exist_ok=True)
-    open(os.path.join(ROOT, "patch", "XinFengShenBang_en.ips"), "wb").write(ips)
+    write_release(open(ORIG, "rb").read(), open(OUT, "rb").read())
     print(stats)
 
 if __name__ == "__main__":
