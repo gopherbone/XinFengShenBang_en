@@ -32,10 +32,14 @@ def parse(rom, off, limit):
     return None
 
 SIGN_BANK, SIGN_TABLE = 0x0C, (0x401F, 0x40C0)   # signposts: pointer lists
+EXTRA_MESSAGES = [(0x1E, 0x4711)]   # "obtained <item>" template (chests)
 
 def collect(rom):
     """All dialogue messages: {"bb:aaaa": tokens} (box-opening messages only)."""
     msgs = {}
+    for b, a in EXTRA_MESSAGES:
+        r = parse(rom, b * 0x4000 + a - 0x4000, b * 0x4000 + 0x4000)
+        if r: msgs[f"{b:02x}:{a:04x}"] = r[0]
     base = SIGN_BANK * 0x4000
     for a in range(SIGN_TABLE[0], SIGN_TABLE[1], 2):
         p = rom[base + a - 0x4000] | rom[base + a - 0x3FFF] << 8

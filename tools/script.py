@@ -21,16 +21,25 @@ def load_translations():
             en[e["id"]] = e["en"]
     return en
 
+import re as _re
+TOKEN = _re.compile(r"\[([0-9A-F]{2})\]")
+TOKEN_PX = {"E3": 64, "EA": 64, "EB": 8}     # width reserved for runtime inserts
+
+def tw(s, font):
+    """Pixel width of a line; [XX] control tokens count as their insert."""
+    w = sum(TOKEN_PX.get(m, 0) for m in TOKEN.findall(s))
+    return w + text_width(TOKEN.sub("", s), font)
+
 def wrap_line(para, font):
     """Greedy pixel word-wrap of one paragraph -> list of lines."""
     lines = []; cur = ""
     for w in para.split():
         cand = (cur + " " + w) if cur else w
-        if text_width(cand, font) <= LINE_PX:
+        if tw(cand, font) <= LINE_PX:
             cur = cand; continue
         if cur: lines.append(cur)
         cur = w
-        while text_width(cur, font) > LINE_PX:          # hard-split long words
+        while not TOKEN.search(cur) and text_width(cur, font) > LINE_PX:   # hard-split long words
             n = len(cur)
             while text_width(cur[:n], font) > LINE_PX: n -= 1
             lines.append(cur[:n]); cur = cur[n:]
@@ -55,6 +64,7 @@ def sanitize(s):
     s = "".join(chr(ARROWS[c]) if c in ARROWS else c for c in s)
     return "".join(c if 0x20 <= ord(c) < 0x7F or 0x80 <= ord(c) <= 0x87 or c == "\n" else "?" for c in s)
 
+
 def encode_box(text, font, need_free_line=False):
     pages = wrap(sanitize(text), font)
     if need_free_line and len(pages[-1]) == 2:
@@ -65,7 +75,7 @@ def encode_box(text, font, need_free_line=False):
         if pi: out.append(0xEC)
         for li, line in enumerate(pg):
             if li: out.append(0xED)
-            out += line.encode("latin-1")
+            out += TOKEN.sub(lambda m: chr(int(m.group(1), 16)), line).encode("latin-1")
     return out
 
 def encode_message(boxes, tail, en, font, syms):

@@ -39,6 +39,14 @@ SECTION "EndPatch", ROM0[$1F0A]
 SECTION "E7Patch", ROM0[$1FF5]
     call Hook_E7Ptr
 
+; --- E3/EA/EB inserts (orig: call $471E / $47C9 / $4772, bank $1E code) ---
+SECTION "E3Patch", ROM0[$1F33]
+    call Hook_E3
+SECTION "EAPatch2", ROM0[$2101]
+    call Hook_EA2
+SECTION "EBPatch", ROM0[$2111]
+    call Hook_EB
+
 ; --- EF: end without closing box (orig $22DF: xor a / ldh [$bc],a / pop hl / ret)
 SECTION "EFPatch", ROM0[$22DF]
     jp Hook_EF
@@ -358,6 +366,68 @@ Hook_E1::
     rst $20
     pop de
     pop hl
+    ret
+
+; E3/EA/EB call code in the message's own (original) bank that points
+; [$CBFE] at an item name or digit string there, then the engine reads it
+; and returns via E4. In English mode: run that code with the original bank
+; mapped, then copy the English version of the insert into WRAM.
+Hook_E3::
+    ld de, $471E
+    jr Hook_Insert
+Hook_EA2::
+    ld de, $47C9
+    jr Hook_Insert
+Hook_EB::
+    ld de, $4772
+Hook_Insert:
+    ld a, [wEnglish]
+    and a
+    jr nz, .en
+    push de                 ; original: just call it in the mapped bank
+    ret
+.en
+    ld a, [$7FFF]
+    ld [wSubBank], a
+    ld a, [wOrigBank]
+    rst $20
+    call .callDE
+    ld a, [$CBFE]
+    ld [wOrigPtr], a
+    ld a, [$CBFF]
+    ld [wOrigPtr + 1], a
+    call LookupMsg          ; English copy of the inserted string?
+    jr nc, .done
+    rst $20
+    ld de, wStr3Buf
+    ld c, 40
+.copy
+    ld a, [hli]
+    cp $11                  ; drop slot-padding / pen codes
+    jr c, .keep
+    cp $20
+    jr c, .skip
+.keep
+    ld [de], a
+    inc de
+    cp $E4
+    jr z, .copied
+.skip
+    dec c
+    jr nz, .copy
+    ld a, $E4
+    ld [de], a
+.copied
+    ld a, LOW(wStr3Buf)
+    ld [$CBFE], a
+    ld a, HIGH(wStr3Buf)
+    ld [$CBFF], a
+.done
+    ld a, [wSubBank]
+    rst $20
+    ret
+.callDE
+    push de
     ret
 
 Hook_End::

@@ -54,8 +54,8 @@ This patch doesn't include the game. Use your own copy of:
 | SHA-1 | `78ad577c4bb2791646186b7c197ffb678e856a90` |
 | Header title | `SHAWU STORY` |
 
-The patch expands the ROM to 4 MiB. The patched ROM has CRC32 `D78F12AD`
-(SHA-1 `e447e842678de90ddd16d616979c498b2996de34`). Both header checksums are valid.
+The patch expands the ROM to 4 MiB. The patched ROM has CRC32 `D065DA74`
+(SHA-1 `5ada81fd547bd2884327496bc17569bf20a05be7`). Both header checksums are valid.
 
 ## How to patch
 

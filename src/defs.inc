@@ -30,5 +30,6 @@ DEF wEnglish3    EQU $D7D1   ; system 3 (location banner) English flag
 DEF wStrTop      EQU $D7D2   ; system 2: string began its own slot
 DEF wStrDepth    EQU $D7D3   ; system 2 nesting depth
 DEF wIndent      EQU $D7D4   ; system 2: pen indent for fresh slots (battle box)
-DEF wStr3Buf     EQU $D7D5   ; 43 bytes: English location string copy
+DEF wSubBank     EQU $D7D5   ; English text bank during an E3/EA/EB insert
+DEF wStr3Buf     EQU $D7D6   ; 42 bytes: English location / insert string copy
 DEF wCellBuf     EQU $D790   ; 64 bytes: current cell + next cell
