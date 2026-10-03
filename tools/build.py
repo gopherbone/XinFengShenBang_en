@@ -2,7 +2,7 @@
 """Build the English ROM: expand, assemble hacks, insert script, fix checksums."""
 import json, os, subprocess, sys, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import fontlib, script
+import fontlib, script, labels
 
 ROOT = fontlib.ROOT
 BUILD = os.path.join(ROOT, "build")
@@ -66,6 +66,7 @@ def main():
     rom = bytearray(open(os.path.join(BUILD, "linked.gbc"), "rb").read())
     syms = read_sym(os.path.join(BUILD, "linked.sym"))
     stats = script.insert(rom, font, syms, FIRST_TEXT_BANK, BANK_LOOKUP)
+    stats["labels"] = labels.apply_all(rom)
     open(OUT, "wb").write(rom)
     run("rgbfix", "-v", "build/XinFengShenBang_en.gbc")
     print(stats)
