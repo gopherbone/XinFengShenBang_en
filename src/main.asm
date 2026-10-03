@@ -137,6 +137,17 @@ Hook_Str2::
     push af
     ld a, [wEnglish2]
     push af
+    ld a, [wStrTop]
+    push af
+    ld a, [wStrDepth]       ; only outermost strings pad their slot
+    inc a
+    ld [wStrDepth], a
+    dec a
+    ld a, 0
+    jr nz, .nested
+    inc a
+.nested
+    ld [wStrTop], a
     ld a, [$7FFF]
     ld [wOrigBank], a
     ld a, l
@@ -162,6 +173,11 @@ Hook_Str2::
     rst $20
 .run
     call .interp
+    ld a, [wStrDepth]
+    dec a
+    ld [wStrDepth], a
+    pop af
+    ld [wStrTop], a
     pop af
     ld [wEnglish2], a
     pop af
@@ -511,11 +527,21 @@ VWF_Char2::
     ld a, [$D052]
     cp $20
     jr nc, .glyph
-    ld [wLineCell], a       ; new line: restart at cell n
+    cp $18
+    jr nc, .pad
+    cp $10
+    jr nz, .jump
+    ld a, [wLineCell]       ; $10: next line of an 8-cell-wide box
+    add 8
+.jump
+    ld [wLineCell], a       ; $01-$0F: restart at cell n
     xor a
     ld [wCurCell], a
     ld [wVwfX], a
     call ClearCellBuf
+    jr .done
+.pad
+    call VWF_Pad2
     jr .done
 .glyph
     call SetTileBase2
@@ -537,6 +563,47 @@ VWF_Char2::
     ld [$D055], a
     ld [wD055Exp], a
     ret
+
+; $18-$1F: blank the slot up to cell (n - $17), but only for a string that
+; started its own slot (names inserted mid-sentence are left unpadded).
+VWF_Pad2:
+    ld a, [wStrTop]
+    and a
+    ret z
+    ld a, [$D052]
+    sub $17
+    ld [wTargetCell], a
+    call SetTileBase2
+    ld a, [wVwfX]
+    and $0F
+    jr z, .loop             ; current cell holds no pixels yet: blank it too
+    ld a, [wCurCell]
+    inc a
+    ld [wCurCell], a
+.loop
+    ld a, [wTargetCell]
+    ld b, a
+    ld a, [wCurCell]
+    cp b
+    jr nc, .end
+    call ClearCellBuf
+    ld a, [wCurCell]
+    ld hl, wCellBuf
+    call UploadCell
+    ld a, [wCurCell]
+    inc a
+    ld [wCurCell], a
+    jr .loop
+.end
+    ld a, [wCurCell]        ; continue from the target cell as a new "line"
+    ld b, a
+    ld a, [wLineCell]
+    add b
+    ld [wLineCell], a
+    xor a
+    ld [wCurCell], a
+    ld [wVwfX], a
+    jp ClearCellBuf
 
 SetTileBase2:
     ld a, [wLineCell]

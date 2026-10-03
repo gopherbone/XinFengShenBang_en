@@ -84,9 +84,8 @@ DESC_LINE_PX = 144   # item/treasure description box: 2 lines x 9 cells
 def pad_slot(en, cells, font):
     """Spaces that blank the rest of the original slot after a shorter
     English string (space = 4px)."""
-    used_px = text_width(sanitize(en), font)
-    spare = cells * 16 - used_px
-    return b" " * (spare // 4) if spare > 0 else b""   # never cross the slot end
+    used = (text_width(sanitize(en), font) + 15) // 16
+    return bytes([0x17 + cells]) if used < cells <= 8 else b""
 
 PROLOGUE = (0x26, 0x5FA2)
 
@@ -119,7 +118,7 @@ def encode_prologue(en, font, cells_per_line=8, lines_per_page=5, ee_per_page=40
         cur = 0
         for i, (li, ch) in enumerate(chars):
             if li != cur:
-                out.append(li * cells_per_line); cur = li
+                out.append(0x10); cur = li       # next line
             out.append(ord(ch))
             out += bytes([0xEE] * ee.get(i, 0))
     return out

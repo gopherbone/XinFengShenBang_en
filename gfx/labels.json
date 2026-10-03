@@ -607,5 +607,155 @@
   "fill": 1,
   "outline": 3,
   "y": 4
+ },
+ {
+  "name": "battle00",
+  "offset": 169189,
+  "layout": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    9,
+    10,
+    11
+   ]
+  ],
+  "text": "Fight",
+  "ink": 0,
+  "bg": 3,
+  "clear": [
+   1
+  ],
+  "shadow": 1,
+  "narrow": "F",
+  "y": 3
+ },
+ {
+  "name": "battle01",
+  "offset": 169189,
+  "layout": [
+   [
+    3,
+    4,
+    5
+   ],
+   [
+    12,
+    13,
+    14
+   ]
+  ],
+  "text": "Relic",
+  "ink": 0,
+  "bg": 3,
+  "clear": [
+   1
+  ],
+  "shadow": 1,
+  "narrow": "F",
+  "y": 3
+ },
+ {
+  "name": "battle02",
+  "offset": 169189,
+  "layout": [
+   [
+    6,
+    7,
+    8
+   ],
+   [
+    15,
+    16,
+    17
+   ]
+  ],
+  "text": "Def",
+  "ink": 0,
+  "bg": 3,
+  "clear": [
+   1
+  ],
+  "shadow": 1,
+  "narrow": "F",
+  "y": 3
+ },
+ {
+  "name": "battle10",
+  "offset": 169189,
+  "layout": [
+   [
+    18,
+    19,
+    20
+   ],
+   [
+    27,
+    28,
+    29
+   ]
+  ],
+  "text": "Call",
+  "ink": 0,
+  "bg": 3,
+  "clear": [
+   1
+  ],
+  "shadow": 1,
+  "narrow": "F",
+  "y": 3
+ },
+ {
+  "name": "battle11",
+  "offset": 169189,
+  "layout": [
+   [
+    21,
+    22,
+    23
+   ],
+   [
+    30,
+    31,
+    32
+   ]
+  ],
+  "text": "Item",
+  "ink": 0,
+  "bg": 3,
+  "clear": [
+   1
+  ],
+  "shadow": 1,
+  "narrow": "F",
+  "y": 3
+ },
+ {
+  "name": "battle12",
+  "offset": 169189,
+  "layout": [
+   [
+    24,
+    25,
+    26
+   ],
+   [
+    33,
+    34,
+    35
+   ]
+  ],
+  "text": "Flee",
+  "ink": 0,
+  "bg": 3,
+  "clear": [
+   1
+  ],
+  "shadow": 1,
+  "narrow": "F",
+  "y": 3
  }
 ]

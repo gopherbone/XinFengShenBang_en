@@ -1565,11 +1565,11 @@
 },
 {
 "id": "2d:7fb4",
-"en": "Got [E1] EXP!"
+"en": "Got[02][E1] EXP!"
 },
 {
 "id": "2d:7fbe",
-"en": "[E1] silver!"
+"en": "[02][E1] silver!"
 },
 {
 "id": "2d:7fc5",
@@ -1590,5 +1590,9 @@
 {
 "id": "2d:7fec",
 "en": "[E8] can't move!"
+},
+{
+"id": "2d:7e18",
+"en": "[E9]: Take this!"
 }
 ]

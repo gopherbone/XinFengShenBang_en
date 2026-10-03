@@ -12,6 +12,7 @@ import json, os
 from fontlib import ROOT, load
 
 NARROW = {   # condensed variants for tight labels (rows 0-7, as font.txt)
+    "F": ["####", "#...", "#...", "###.", "#...", "#...", "#...", "#..."],
     "T": ["#####", "..#..", "..#..", "..#..", "..#..", "..#..", "..#..", "..#.."],
     "m": [".....", ".....", "##.#.", "#.#.#", "#.#.#", "#.#.#", "#.#.#", "#.#.#"],
     "M": ["#...#", "##.##", "#.#.#", "#.#.#", "#...#", "#...#", "#...#", "#...#"],
@@ -81,6 +82,12 @@ def apply(rom, cfg, font):
                 for i, p in enumerate(row):
                     if p == "#" and 0 <= y0 + r < H and x + i < W: img[y0 + r][x + i] = ink
             x += w + 1
+    if "shadow" in cfg:                       # drop shadow one pixel below the ink
+        sc = cfg["shadow"]; bgc = cfg.get("bg", 0)
+        src = [r[:] for r in img]
+        for y in range(H - 1):
+            for x in range(W):
+                if src[y][x] == ink and src[y + 1][x] == bgc: img[y + 1][x] = sc
     if cfg.get("style") == "outline":
         oc = cfg.get("outline", 3)
         src = [r[:] for r in img]
