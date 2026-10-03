@@ -8,6 +8,7 @@ import textdump
 from textdump import T
 MENU_BANKS = [0x0C, 0x0D, 0x1E, 0x25, 0x2D]
 TERM = (0xE2, 0xE4, 0xED)
+EXTRA = [(0x0A, 0x4FA9), (0x0A, 0x4FAF)]   # title menu (own glyph set)
 TABLES = [(0x1E, 0x4953), (0x1E, 0x607F), (0x1E, 0x62CD), (0x1E, 0x64A7), (0x1E, 0x6951),
           (0x1E, 0x4986), (0x0D, 0x4E34), (0x0D, 0x53F1)]
 
@@ -47,6 +48,7 @@ def collect(rom):
                 starts.add((b, 0x4000 + i + 1))
     for b, a in TABLES:
         for p in table_targets(rom, b, a): starts.add((b, p))
+    starts |= set(EXTRA)
     out = {}
     for b, a in sorted(starts):
         r = parse(rom, b, a)

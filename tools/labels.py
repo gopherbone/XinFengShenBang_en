@@ -47,6 +47,9 @@ def apply(rom, cfg, font):
             px = tile_px(rom[off + t * 16: off + t * 16 + 16])
             for y in range(8):
                 for x in range(8): img[ty*8+y][tx*8+x] = px[y][x]
+    if cfg.get("style") == "outline":        # outlined sprite text: start blank
+        img = [[0] * W for _ in range(H)]
+        ink = cfg.get("fill", 1)
     for c in cfg.get("clear", []):           # wipe decoration colours
         for y in range(H):
             for x in range(W):
@@ -78,6 +81,14 @@ def apply(rom, cfg, font):
                 for i, p in enumerate(row):
                     if p == "#" and 0 <= y0 + r < H and x + i < W: img[y0 + r][x + i] = ink
             x += w + 1
+    if cfg.get("style") == "outline":
+        oc = cfg.get("outline", 3)
+        src = [r[:] for r in img]
+        for y in range(H):
+            for x in range(W):
+                if src[y][x] == 0 and any(0 <= y + dy < H and 0 <= x + dx < W and src[y + dy][x + dx] == ink
+                                          for dy in (-1, 0, 1) for dx in (-1, 0, 1)):
+                    img[y][x] = oc
     for ty, row in enumerate(layout):
         for tx, t in enumerate(row):
             px = [[img[ty*8+y][tx*8+xx] for xx in range(8)] for y in range(8)]
