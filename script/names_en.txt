@@ -1,0 +1,163 @@
+00 
+01 Pingyan
+02 Yin Wen
+03 Xiaojun
+04 Pa Ji
+05 Ji Chang
+06 Tu Xingsun
+07 Long Ji
+08 Deng Chanyu
+09 Nezha
+0a Yang Jian
+0b Jiang Ziya
+0c Leizhenzi
+0d Ji Fa
+0e Waiter
+0f Waitress
+10 Guest
+11 Manager
+12 Spider Fiend
+13 Xiaolian
+14 Boss Wang
+15 Townsman
+16 Idler
+17 Owner
+18 Hostess
+19 Fox Spirit
+1a Shaobai
+1b Xiaoyu
+1c Shadow
+1d Shu Zhong
+1e You Hun
+1f King Zhou
+20 Soldier
+21 Captain
+22 Lieutenant
+23 Yin Pobai
+24 Lei Kai
+25 Shen Gongbao
+26 Yuanshi
+27 Chijingzi
+28 Guangchengzi
+29 Maid
+2a Guard
+2b Minister A
+2c Minister B
+2d Young Man
+2e Young Woman
+2f Old Man
+30 Child
+31 Man
+32 Woman
+33 Acai
+34 Xiaoqiang
+35 Xiaomei
+36 Ancient South
+37 Crane Boy
+38 Xiaofang
+39 Ayuan
+3a Fox-Marten
+3b Dragon God
+3c Boy
+3d Girl
+3e Yunzhongzi
+3f Junjie
+40 Junhao
+41 Shrimp Fiend
+42 Ao Guang
+43 Ao Bing
+44 Ao Zhu
+45 Leopard
+46 Taiyi
+47 Xiaohui
+48 Maid
+49 Li Jing
+4a Lady Li
+4b Xiaohei
+4c Xiaomen
+4d Bloodgnat
+4e Demon
+4f Phoenix Sage
+50 Yellow Turban
+51 Fulong Sage
+52 Chong Houhu
+53 Zhang Guifang
+54 Sergeant
+55 Xiaokang
+56 Kang's Mom
+57 Wuyan Beast
+58 Daode Zhenjun
+59 Five-Hue Ox
+5a North Dragon
+5b South Dragon
+5c West Dragon
+5d Yin Wen
+5e Daoxing
+5f Guangfa
+60 Puxian
+61 Yuding
+62 Xiaoshen
+63 Wang Mo
+64 Yang Sen
+65 Sibuxiang
+66 Gao Youqian
+67 Li Xingba
+68 Lady Shiji
+69 Ling'er
+6a Wuyun Camel
+6b Nezha
+6c Stranger
+6d Daji
+6e Yin Hong
+6f Yin Jiao
+70 Meng Changsheng
+71 Hu Ximei
+72 Meng Yuxuan
+73 Ziyi
+74 Deng Jiugong
+75 Yuyi Sage
+76 Jade Qilin
+77 Long Xuhu
+78 Black Dragon
+79 White Dragon
+7a Blue Dragon
+7b Parrot
+7c Whale Fiend
+7d Su Daji
+7e Su Hu
+7f Ajun
+80 Lingya Sage
+81 Wuyun Sage
+82 Jinguang Sage
+83 Xiaoqing
+84 Wu Xiangling
+85 Wu Ji
+86 Little Fox
+87 Ajun
+88 White Elephant
+89 Cihang
+8a Juliusun
+8b Huanglong
+8c White Tiger
+8d Zhao Gongming
+8e Golden Ape
+8f Gold Turtle
+90 Pangu
+91 Nuwa
+92 Nine-Tail Fox
+93 Jinling
+94 Guiling
+95 Wudang
+96 Ten Lords
+97 Tongtian
+98 Tongtian
+99 Pingyan
+9a Xiaojun
+9b Dragon King
+9c ???
+9d Turtle Fiend
+9e Pingyan
+9f Old Woman
+a0 Yin Wen
+a1 Huang Feihu
+a2 Demon Beast

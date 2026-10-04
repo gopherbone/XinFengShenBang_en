@@ -1,0 +1,1602 @@
+[
+{
+"id": "1e:47a5",
+"en": "1"
+},
+{
+"id": "1e:47a8",
+"en": "2"
+},
+{
+"id": "1e:47ab",
+"en": "3"
+},
+{
+"id": "1e:47ae",
+"en": "4"
+},
+{
+"id": "1e:47b1",
+"en": "5"
+},
+{
+"id": "1e:47b4",
+"en": "6"
+},
+{
+"id": "1e:47b7",
+"en": "7"
+},
+{
+"id": "1e:47ba",
+"en": "8"
+},
+{
+"id": "1e:47bd",
+"en": "9"
+},
+{
+"id": "1e:484b",
+"en": "1000 silver"
+},
+{
+"id": "1e:4853",
+"en": "1500 silver"
+},
+{
+"id": "1e:485b",
+"en": "2000 silver"
+},
+{
+"id": "1e:4863",
+"en": "2500 silver"
+},
+{
+"id": "1e:495f",
+"en": "-"
+},
+{
+"id": "1e:4962",
+"en": "Mt"
+},
+{
+"id": "1e:4965",
+"en": "Wd"
+},
+{
+"id": "1e:4968",
+"en": "Wa"
+},
+{
+"id": "1e:496b",
+"en": "Fi"
+},
+{
+"id": "1e:496e",
+"en": "Ea"
+},
+{
+"id": "1e:4998",
+"en": ""
+},
+{
+"id": "1e:4999",
+"en": "Only usable in battle."
+},
+{
+"id": "1e:49a8",
+"en": "Not enough MP!"
+},
+{
+"id": "1e:49b4",
+"en": "Save 1"
+},
+{
+"id": "1e:49bc",
+"en": "Save 2"
+},
+{
+"id": "1e:49c4",
+"en": "Save 3"
+},
+{
+"id": "1e:49cc",
+"en": "Can't use!"
+},
+{
+"id": "1e:49d6",
+"en": "Wrong element! Can't equip."
+},
+{
+"id": "1e:49e9",
+"en": "Buy it?"
+},
+{
+"id": "1e:50ad",
+"en": ""
+},
+{
+"id": "1e:50c3",
+"en": ""
+},
+{
+"id": "1e:50d6",
+"en": ""
+},
+{
+"id": "1e:50e9",
+"en": ""
+},
+{
+"id": "1e:50f6",
+"en": ""
+},
+{
+"id": "1e:5104",
+"en": ""
+},
+{
+"id": "1e:5112",
+"en": ""
+},
+{
+"id": "1e:511f",
+"en": ""
+},
+{
+"id": "1e:512c",
+"en": ""
+},
+{
+"id": "1e:5139",
+"en": ""
+},
+{
+"id": "1e:5145",
+"en": ""
+},
+{
+"id": "1e:5152",
+"en": ""
+},
+{
+"id": "1e:515f",
+"en": ""
+},
+{
+"id": "1e:516b",
+"en": ""
+},
+{
+"id": "1e:5178",
+"en": ""
+},
+{
+"id": "1e:5185",
+"en": ""
+},
+{
+"id": "1e:5195",
+"en": ""
+},
+{
+"id": "1e:51a9",
+"en": ""
+},
+{
+"id": "1e:51bd",
+"en": ""
+},
+{
+"id": "1e:51cf",
+"en": ""
+},
+{
+"id": "1e:51df",
+"en": ""
+},
+{
+"id": "1e:51ee",
+"en": ""
+},
+{
+"id": "1e:5200",
+"en": ""
+},
+{
+"id": "1e:520a",
+"en": ""
+},
+{
+"id": "1e:5215",
+"en": ""
+},
+{
+"id": "1e:5220",
+"en": ""
+},
+{
+"id": "1e:522b",
+"en": ""
+},
+{
+"id": "1e:5234",
+"en": ""
+},
+{
+"id": "1e:5241",
+"en": ""
+},
+{
+"id": "1e:60bd",
+"en": ""
+},
+{
+"id": "1e:60c3",
+"en": "Hot Bun"
+},
+{
+"id": "1e:60ca",
+"en": "Stanch Herb"
+},
+{
+"id": "1e:60d3",
+"en": "Wound Salve"
+},
+{
+"id": "1e:60db",
+"en": "Lotus Balm"
+},
+{
+"id": "1e:60e2",
+"en": "Sage Charm"
+},
+{
+"id": "1e:60e9",
+"en": "Guanyin Dew"
+},
+{
+"id": "1e:60f1",
+"en": "Holy Peach"
+},
+{
+"id": "1e:60f8",
+"en": "Spirit Pill"
+},
+{
+"id": "1e:6100",
+"en": "Royal Honey"
+},
+{
+"id": "1e:6107",
+"en": "Lingzhi"
+},
+{
+"id": "1e:610f",
+"en": "Lotus Seed"
+},
+{
+"id": "1e:6116",
+"en": "Vase Nectar"
+},
+{
+"id": "1e:611e",
+"en": "Antidote"
+},
+{
+"id": "1e:6127",
+"en": "Silver Pin"
+},
+{
+"id": "1e:612e",
+"en": "Wake Pill"
+},
+{
+"id": "1e:6136",
+"en": "Panacea"
+},
+{
+"id": "1e:613e",
+"en": "Soul Charm"
+},
+{
+"id": "1e:6146",
+"en": "Life Pill"
+},
+{
+"id": "1e:614e",
+"en": "Yama Writ"
+},
+{
+"id": "1e:6155",
+"en": "Might Pill"
+},
+{
+"id": "1e:615e",
+"en": "Eight Stone"
+},
+{
+"id": "1e:6165",
+"en": "Sarira"
+},
+{
+"id": "1e:616e",
+"en": "Frost Fruit"
+},
+{
+"id": "1e:6175",
+"en": "Wind Pill"
+},
+{
+"id": "1e:617d",
+"en": "Trial Pill"
+},
+{
+"id": "1e:6184",
+"en": "Veil Charm"
+},
+{
+"id": "1e:618c",
+"en": "Ghost Pin"
+},
+{
+"id": "1e:6194",
+"en": "Veil Cloak"
+},
+{
+"id": "1e:619c",
+"en": "Smoke Bomb"
+},
+{
+"id": "1e:61a4",
+"en": "Paper Crane"
+},
+{
+"id": "1e:61fc",
+"en": "Crest 1"
+},
+{
+"id": "1e:6203",
+"en": "Crest 2"
+},
+{
+"id": "1e:620a",
+"en": "Crest 3"
+},
+{
+"id": "1e:6211",
+"en": "Crest 4"
+},
+{
+"id": "1e:6218",
+"en": "Drgn Orb"
+},
+{
+"id": "1e:621d",
+"en": "Sinew"
+},
+{
+"id": "1e:6222",
+"en": "Breakseal"
+},
+{
+"id": "1e:622b",
+"en": "Bone"
+},
+{
+"id": "1e:6230",
+"en": "Rope"
+},
+{
+"id": "1e:6235",
+"en": "Idler Pass"
+},
+{
+"id": "1e:623e",
+"en": "Elixir"
+},
+{
+"id": "1e:6242",
+"en": "Key"
+},
+{
+"id": "1e:6246",
+"en": "Hanky"
+},
+{
+"id": "1e:624b",
+"en": "Five-Hue Ox"
+},
+{
+"id": "1e:6252",
+"en": "Phx Orb"
+},
+{
+"id": "1e:6258",
+"en": "Cos. Bow"
+},
+{
+"id": "1e:625e",
+"en": "Sky Shot"
+},
+{
+"id": "1e:6265",
+"en": "Ring"
+},
+{
+"id": "1e:626a",
+"en": "Phx Orb"
+},
+{
+"id": "1e:626f",
+"en": "Zhuque"
+},
+{
+"id": "1e:6276",
+"en": "Pin"
+},
+{
+"id": "1e:627b",
+"en": "Rouge"
+},
+{
+"id": "1e:6280",
+"en": "Slippers"
+},
+{
+"id": "1e:6287",
+"en": "Blush"
+},
+{
+"id": "1e:628c",
+"en": "Iris"
+},
+{
+"id": "1e:6290",
+"en": "Spitweed"
+},
+{
+"id": "1e:6297",
+"en": "Lotus"
+},
+{
+"id": "1e:629b",
+"en": "Fungus"
+},
+{
+"id": "1e:62a1",
+"en": "Rainbow Silk"
+},
+{
+"id": "1e:62a9",
+"en": "Shark"
+},
+{
+"id": "1e:62af",
+"en": "Azure Blade"
+},
+{
+"id": "1e:62b5",
+"en": "Tiger Sword"
+},
+{
+"id": "1e:62be",
+"en": "Town Pass"
+},
+{
+"id": "1e:62c7",
+"en": "Pangu Blade"
+},
+{
+"id": "1e:6351",
+"en": ""
+},
+{
+"id": "1e:6352",
+"en": "Bolt Wing"
+},
+{
+"id": "1e:6357",
+"en": "Bolt Club"
+},
+{
+"id": "1e:635c",
+"en": "Chaos Pearl"
+},
+{
+"id": "1e:6362",
+"en": "Sky Seal"
+},
+{
+"id": "1e:6367",
+"en": "Bolt Bell"
+},
+{
+"id": "1e:636c",
+"en": "Felling Coin"
+},
+{
+"id": "1e:6372",
+"en": "Qi Blade"
+},
+{
+"id": "1e:6377",
+"en": "God Whip"
+},
+{
+"id": "1e:637c",
+"en": "Gemwood"
+},
+{
+"id": "1e:6381",
+"en": "Peak Fife"
+},
+{
+"id": "1e:6386",
+"en": "Trident"
+},
+{
+"id": "1e:638b",
+"en": "Pest Brly"
+},
+{
+"id": "1e:6390",
+"en": "Red Edge"
+},
+{
+"id": "1e:6395",
+"en": "Snare Kn"
+},
+{
+"id": "1e:639a",
+"en": "Heart Pin"
+},
+{
+"id": "1e:639f",
+"en": "Sal Fruit"
+},
+{
+"id": "1e:63a4",
+"en": "Frost"
+},
+{
+"id": "1e:63a8",
+"en": "Sea Orb"
+},
+{
+"id": "1e:63ad",
+"en": "3-Light Dew"
+},
+{
+"id": "1e:63b3",
+"en": "Sea Vase"
+},
+{
+"id": "1e:63b8",
+"en": "Sea Harp"
+},
+{
+"id": "1e:63bd",
+"en": "Gale Bag"
+},
+{
+"id": "1e:63c2",
+"en": "Dual Whip"
+},
+{
+"id": "1e:63c7",
+"en": "Tide Seal"
+},
+{
+"id": "1e:63cc",
+"en": "Fire Bell"
+},
+{
+"id": "1e:63d1",
+"en": "Red Sash"
+},
+{
+"id": "1e:63d6",
+"en": "Fire Cage"
+},
+{
+"id": "1e:63dc",
+"en": "Fire Dart"
+},
+{
+"id": "1e:63e1",
+"en": "5-Fire Fan"
+},
+{
+"id": "1e:63e7",
+"en": "Parasol"
+},
+{
+"id": "1e:63ec",
+"en": "Moye"
+},
+{
+"id": "1e:63f0",
+"en": "Fire Flag"
+},
+{
+"id": "1e:63f5",
+"en": "Mud Claw"
+},
+{
+"id": "1e:63fa",
+"en": "Hue Rock"
+},
+{
+"id": "1e:63ff",
+"en": "Pangu"
+},
+{
+"id": "1e:6404",
+"en": "Pagoda"
+},
+{
+"id": "1e:6409",
+"en": "Gold Dipper"
+},
+{
+"id": "1e:640f",
+"en": "Cos. Ring"
+},
+{
+"id": "1e:6414",
+"en": "Brick"
+},
+{
+"id": "1e:6418",
+"en": "Quake"
+},
+{
+"id": "1e:641d",
+"en": "WF Wheel"
+},
+{
+"id": "1e:6422",
+"en": "Slay Flag"
+},
+{
+"id": "1e:6427",
+"en": "Taiji Map"
+},
+{
+"id": "1e:642c",
+"en": "Bindrope"
+},
+{
+"id": "1e:6431",
+"en": "Daze Bnr"
+},
+{
+"id": "1e:6436",
+"en": "Haze Pot"
+},
+{
+"id": "1e:643b",
+"en": "Venom Seal"
+},
+{
+"id": "1e:6441",
+"en": "Yin-Yang"
+},
+{
+"id": "1e:6446",
+"en": "Sage Net"
+},
+{
+"id": "1e:644b",
+"en": "Jade Vase"
+},
+{
+"id": "1e:6451",
+"en": "Elixir Gourd"
+},
+{
+"id": "1e:6457",
+"en": "Wish Pearl"
+},
+{
+"id": "1e:645d",
+"en": "Nuwa Stone"
+},
+{
+"id": "1e:6463",
+"en": "Pure Whisk"
+},
+{
+"id": "1e:6469",
+"en": "Purge Leaf"
+},
+{
+"id": "1e:646f",
+"en": "Calm Urn"
+},
+{
+"id": "1e:6474",
+"en": "Evil Lute"
+},
+{
+"id": "1e:647a",
+"en": "Melt Dew"
+},
+{
+"id": "1e:647f",
+"en": "Soul Incense"
+},
+{
+"id": "1e:6485",
+"en": "Fiend Mir"
+},
+{
+"id": "1e:648a",
+"en": "D.Stake"
+},
+{
+"id": "1e:648f",
+"en": "Revive Vial"
+},
+{
+"id": "1e:6495",
+"en": "Phoenix Log"
+},
+{
+"id": "1e:649b",
+"en": "Wine Stone"
+},
+{
+"id": "1e:64a1",
+"en": "Violet Robe"
+},
+{
+"id": "1e:64d1",
+"en": ""
+},
+{
+"id": "1e:64d2",
+"en": "Gold Titan"
+},
+{
+"id": "1e:64da",
+"en": "Sibuxiang"
+},
+{
+"id": "1e:64df",
+"en": "Sky Dog"
+},
+{
+"id": "1e:64e4",
+"en": "Xuhu"
+},
+{
+"id": "1e:64e9",
+"en": "Leopard"
+},
+{
+"id": "1e:64ee",
+"en": "Dark Qilin"
+},
+{
+"id": "1e:64f3",
+"en": "Shears"
+},
+{
+"id": "1e:64f8",
+"en": "5-Dragon"
+},
+{
+"id": "1e:64fd",
+"en": "Whale"
+},
+{
+"id": "1e:6501",
+"en": "Bloodfly"
+},
+{
+"id": "1e:6506",
+"en": "Wuyan"
+},
+{
+"id": "1e:650b",
+"en": "Marten"
+},
+{
+"id": "1e:6510",
+"en": "Camel"
+},
+{
+"id": "1e:6515",
+"en": "Jade Qilin"
+},
+{
+"id": "1e:651a",
+"en": "Beast"
+},
+{
+"id": "1e:651e",
+"en": "Phoenix"
+},
+{
+"id": "1e:6523",
+"en": "Tigerbolt"
+},
+{
+"id": "1e:6528",
+"en": "Dark Turtle"
+},
+{
+"id": "1e:652e",
+"en": "Cloud Drake"
+},
+{
+"id": "1e:6534",
+"en": "Crane Lion"
+},
+{
+"id": "1e:6581",
+"en": "Heals 30 HP to one ally."
+},
+{
+"id": "1e:6596",
+"en": "Heals 100 HP to one ally."
+},
+{
+"id": "1e:65ac",
+"en": "Heals 250 HP to one ally."
+},
+{
+"id": "1e:65c2",
+"en": "Heals 999 HP to one ally."
+},
+{
+"id": "1e:65d8",
+"en": "Heals 100 HP to all allies."
+},
+{
+"id": "1e:65ec",
+"en": "Heals 250 HP to all allies."
+},
+{
+"id": "1e:6600",
+"en": "Heals 999 HP to all allies."
+},
+{
+"id": "1e:6614",
+"en": "Restores 30 MP to one ally."
+},
+{
+"id": "1e:6629",
+"en": "Restores 100 MP to one ally."
+},
+{
+"id": "1e:663f",
+"en": "Restores 250 MP to one ally."
+},
+{
+"id": "1e:6655",
+"en": "Restores 999 MP to one ally."
+},
+{
+"id": "1e:666b",
+"en": "Restores 250 MP to all allies."
+},
+{
+"id": "1e:667f",
+"en": "Cures poison on one ally."
+},
+{
+"id": "1e:6693",
+"en": "Wakes one sleeping ally."
+},
+{
+"id": "1e:66a7",
+"en": "Cures confusion on one ally."
+},
+{
+"id": "1e:66bb",
+"en": "Cures all ailments on one ally."
+},
+{
+"id": "1e:66d1",
+"en": "Revives one ally with 10% HP."
+},
+{
+"id": "1e:66e9",
+"en": "Revives one ally with 50% HP."
+},
+{
+"id": "1e:6701",
+"en": "Revives one ally with full HP."
+},
+{
+"id": "1e:6715",
+"en": "Raises max physical attack by 3."
+},
+{
+"id": "1e:672d",
+"en": "Raises max physical defense by 3."
+},
+{
+"id": "1e:6745",
+"en": "Raises max magic attack by 3."
+},
+{
+"id": "1e:675f",
+"en": "Raises max magic defense by 3."
+},
+{
+"id": "1e:6777",
+"en": "Raises max speed by 3."
+},
+{
+"id": "1e:678f",
+"en": "Raises level by 1."
+},
+{
+"id": "1e:679d",
+"en": "Weak enemies won't appear for 100 steps."
+},
+{
+"id": "1e:67b9",
+"en": "Weak enemies won't appear for 200 steps."
+},
+{
+"id": "1e:67d5",
+"en": "No enemies at all for 200 steps."
+},
+{
+"id": "1e:67ec",
+"en": "Escape from battle 100% of the time."
+},
+{
+"id": "1e:6800",
+"en": "Escape from the dungeon."
+},
+{
+"id": "1e:686d",
+"en": "Crest 1"
+},
+{
+"id": "1e:6874",
+"en": "Crest 2"
+},
+{
+"id": "1e:687b",
+"en": "Crest 3"
+},
+{
+"id": "1e:6882",
+"en": "Crest 4"
+},
+{
+"id": "1e:6889",
+"en": "Drgn Orb"
+},
+{
+"id": "1e:688e",
+"en": "Sinew"
+},
+{
+"id": "1e:6893",
+"en": "Breakseal"
+},
+{
+"id": "1e:689c",
+"en": "Bone"
+},
+{
+"id": "1e:68a1",
+"en": "Rope"
+},
+{
+"id": "1e:68a6",
+"en": "Idler Pass"
+},
+{
+"id": "1e:68af",
+"en": "Pill made of Sinew and Bone"
+},
+{
+"id": "1e:68c6",
+"en": "Key"
+},
+{
+"id": "1e:68ca",
+"en": "Hanky"
+},
+{
+"id": "1e:68cf",
+"en": "Five-Hue Ox"
+},
+{
+"id": "1e:68d6",
+"en": "Phx Orb"
+},
+{
+"id": "1e:68dc",
+"en": "Cos. Bow"
+},
+{
+"id": "1e:68e2",
+"en": "Sky Shot"
+},
+{
+"id": "1e:68e9",
+"en": "Ring"
+},
+{
+"id": "1e:68ee",
+"en": "Phx Orb"
+},
+{
+"id": "1e:68f3",
+"en": "Zhuque"
+},
+{
+"id": "1e:68fa",
+"en": "Pin"
+},
+{
+"id": "1e:68ff",
+"en": "Rouge"
+},
+{
+"id": "1e:6904",
+"en": "Slippers"
+},
+{
+"id": "1e:690b",
+"en": "Blush"
+},
+{
+"id": "1e:6910",
+"en": "Iris"
+},
+{
+"id": "1e:6914",
+"en": "Spitweed"
+},
+{
+"id": "1e:691b",
+"en": "Lotus"
+},
+{
+"id": "1e:691f",
+"en": "Fungus"
+},
+{
+"id": "1e:6925",
+"en": "Rainbow Silk"
+},
+{
+"id": "1e:692d",
+"en": "Shark"
+},
+{
+"id": "1e:6933",
+"en": "Azure Blade"
+},
+{
+"id": "1e:6939",
+"en": "Tiger Sword"
+},
+{
+"id": "1e:6942",
+"en": "Town Pass"
+},
+{
+"id": "1e:694b",
+"en": "Pangu Blade"
+},
+{
+"id": "1e:69d5",
+"en": ""
+},
+{
+"id": "1e:69d6",
+"en": "Summons dark clouds that strike with lightning."
+},
+{
+"id": "1e:69ec",
+"en": "Forged of rare metal; it draws in lightning."
+},
+{
+"id": "1e:6a04",
+"en": "An orb charged with energy that fires lasers."
+},
+{
+"id": "1e:6a1e",
+"en": "Thunder God's treasure. Calls down huge thunder."
+},
+{
+"id": "1e:6a30",
+"en": "A magic cymbal that shocks foes with lightning."
+},
+{
+"id": "1e:6a49",
+"en": "A pure gold coin that explodes on impact."
+},
+{
+"id": "1e:6a65",
+"en": "Boosts the user's inner power to fire sword qi."
+},
+{
+"id": "1e:6a7e",
+"en": "A magic whip made for fighting evil gods."
+},
+{
+"id": "1e:6a94",
+"en": "Mighty roots that pierce foes bloody."
+},
+{
+"id": "1e:6ab0",
+"en": "Summons poison vines found only in hell."
+},
+{
+"id": "1e:6ac7",
+"en": "A holy weapon blessed by wood spirits."
+},
+{
+"id": "1e:6ae1",
+"en": "Sends a swarm of plague locusts to devour foes."
+},
+{
+"id": "1e:6afb",
+"en": "A magic blade that kills without drawing blood."
+},
+{
+"id": "1e:6b0e",
+"en": "Full of cosmic spirit. Not even sages escape it."
+},
+{
+"id": "1e:6b27",
+"en": "Lodges in a foe's body, then explodes inside."
+},
+{
+"id": "1e:6b40",
+"en": "A strange treasure handed down for a thousand years."
+},
+{
+"id": "1e:6b54",
+"en": "A rare treasure filled with deep cold."
+},
+{
+"id": "1e:6b69",
+"en": "A magic pearl lost by the East Sea Dragon King."
+},
+{
+"id": "1e:6b81",
+"en": "A single drop of it can flood a whole town."
+},
+{
+"id": "1e:6b9c",
+"en": "A magic vase that can hold an entire sea."
+},
+{
+"id": "1e:6bb5",
+"en": "A zither that hits foes with waterfall force."
+},
+{
+"id": "1e:6bcc",
+"en": "A magic bag holding the power of wind and cloud."
+},
+{
+"id": "1e:6be4",
+"en": "A pair of whips holding the power of yin and yang."
+},
+{
+"id": "1e:6bfc",
+"en": "Churns rivers and seas with the power of water spirits."
+},
+{
+"id": "1e:6c17",
+"en": "A cymbal holding the power of flame."
+},
+{
+"id": "1e:6c2a",
+"en": "Once worn by the Fire God; holds the power of fire."
+},
+{
+"id": "1e:6c49",
+"en": "Traps a foe inside, then burns them with fierce fire."
+},
+{
+"id": "1e:6c67",
+"en": "A dart forged of ore soaked 1000 years in lava."
+},
+{
+"id": "1e:6c83",
+"en": "A fan that whips up scorching whirlwinds."
+},
+{
+"id": "1e:6c99",
+"en": "Open it and its flames burn everything to ash."
+},
+{
+"id": "1e:6cb6",
+"en": "A light, legendary sword that wards off evil."
+},
+{
+"id": "1e:6ccf",
+"en": "Calls down flaming meteors on the enemy."
+},
+{
+"id": "1e:6ce7",
+"en": "Rends foes with the power of the Earth Dragon."
+},
+{
+"id": "1e:6cfd",
+"en": "A holy orb that can shrink or grow at will."
+},
+{
+"id": "1e:6d14",
+"en": "Calls down boulders to crush the enemy."
+},
+{
+"id": "1e:6d27",
+"en": "A heavenly treasure that subdues any demon."
+},
+{
+"id": "1e:6d41",
+"en": "Slashes foes with holy light."
+},
+{
+"id": "1e:6d5d",
+"en": "Looks like a plain ring, but holds great power."
+},
+{
+"id": "1e:6d75",
+"en": "Causes a mighty quake when it hits the ground."
+},
+{
+"id": "1e:6d89",
+"en": "Strikes foes with the power of earth."
+},
+{
+"id": "1e:6d9e",
+"en": "Raises one ally's speed."
+},
+{
+"id": "1e:6db1",
+"en": "May instantly slay one enemy."
+},
+{
+"id": "1e:6dc7",
+"en": "Halves magic damage to all allies."
+},
+{
+"id": "1e:6de4",
+"en": "Lowers one enemy's speed."
+},
+{
+"id": "1e:6df6",
+"en": "Confuses one enemy."
+},
+{
+"id": "1e:6e05",
+"en": "Puts one enemy to sleep."
+},
+{
+"id": "1e:6e14",
+"en": "Poisons one enemy."
+},
+{
+"id": "1e:6e22",
+"en": "Blocks every enemy attack on one ally once."
+},
+{
+"id": "1e:6e3e",
+"en": "Leaves one enemy unable to move for 2 turns."
+},
+{
+"id": "1e:6e53",
+"en": "Heals 50 HP to one ally."
+},
+{
+"id": "1e:6e69",
+"en": "Heals 100 HP to one ally."
+},
+{
+"id": "1e:6e80",
+"en": "Heals 200 HP to all allies."
+},
+{
+"id": "1e:6e95",
+"en": "Fully heals one ally's HP."
+},
+{
+"id": "1e:6ea9",
+"en": "Cures all ailments on one ally."
+},
+{
+"id": "1e:6ec3",
+"en": "Cures poison on one ally."
+},
+{
+"id": "1e:6ed5",
+"en": "Cures confusion on one ally."
+},
+{
+"id": "1e:6ee8",
+"en": "Confuses and poisons one enemy."
+},
+{
+"id": "1e:6efc",
+"en": "Lowers all enemies' defense by 20%."
+},
+{
+"id": "1e:6f13",
+"en": "Lowers all enemies' attack by 20%."
+},
+{
+"id": "1e:6f28",
+"en": "30% chance to turn one enemy into a frog."
+},
+{
+"id": "1e:6f44",
+"en": "Escape from battle 100% of the time."
+},
+{
+"id": "1e:6f5d",
+"en": "Revives one ally with 10% HP."
+},
+{
+"id": "1e:6f78",
+"en": "Revives one ally with 50% HP."
+},
+{
+"id": "1e:6f93",
+"en": "Raises all allies' attack by 20%."
+},
+{
+"id": "1e:6fa7",
+"en": "Raises all allies' defense by 20%."
+},
+{
+"id": "1e:6fe8",
+"en": "Summon!"
+},
+{
+"id": "1e:6fee",
+"en": "Yang Jian's summon!"
+},
+{
+"id": "1e:6ff8",
+"en": "Wen Zhong's summon!"
+},
+{
+"id": "1e:7002",
+"en": "Zhao Gongming's summon!"
+},
+{
+"id": "1e:700d",
+"en": "Long Ji's summon! All allies' HP fully restored!"
+},
+{
+"id": "1e:7026",
+"en": "All enemy magic nullified for 2 turns."
+},
+{
+"id": "1e:703d",
+"en": "All allies revived with full HP!"
+},
+{
+"id": "25:4920",
+"en": ""
+},
+{
+"id": "25:4925",
+"en": ""
+},
+{
+"id": "25:555f",
+"en": ""
+},
+{
+"id": "25:5564",
+"en": ""
+},
+{
+"id": "25:5569",
+"en": ""
+},
+{
+"id": "25:556e",
+"en": ""
+},
+{
+"id": "25:5573",
+"en": ""
+},
+{
+"id": "25:6812",
+"en": ""
+},
+{
+"id": "25:6c8d",
+"en": "Summon!"
+},
+{
+"id": "25:7874",
+"en": "Sell price"
+},
+{
+"id": "25:787c",
+"en": "Sell it?"
+},
+{
+"id": "2d:7e22",
+"en": "Guarding"
+},
+{
+"id": "2d:7e27",
+"en": "Flee"
+},
+{
+"id": "2d:7e2b",
+"en": "No escape!"
+},
+{
+"id": "2d:7e31",
+"en": "Got away!"
+},
+{
+"id": "2d:7e37",
+"en": "[E9]: Take this! [E6]"
+},
+{
+"id": "2d:7e41",
+"en": "[E9]: Go! [E6]"
+},
+{
+"id": "2d:7e4a",
+"en": "[E9]: Take this! [E6]"
+},
+{
+"id": "2d:7e54",
+"en": "[E9]: Summon!"
+},
+{
+"id": "2d:7e5d",
+"en": "Summon! [E5]"
+},
+{
+"id": "2d:7e6a",
+"en": "Defeated..."
+},
+{
+"id": "2d:7e70",
+"en": "Victory!"
+},
+{
+"id": "2d:7e76",
+"en": "[E9] can't move!"
+},
+{
+"id": "2d:7e7f",
+"en": "Missed!"
+},
+{
+"id": "2d:7e87",
+"en": "[E7] is poisoned!"
+},
+{
+"id": "2d:7e92",
+"en": "[E9] is confused!"
+},
+{
+"id": "2d:7e9d",
+"en": "[E9] fell asleep!"
+},
+{
+"id": "2d:7ea7",
+"en": "[E7] confused + poisoned!"
+},
+{
+"id": "2d:7eb4",
+"en": "[E7] is cured!"
+},
+{
+"id": "2d:7ec0",
+"en": "[E7] is no longer confused!"
+},
+{
+"id": "2d:7ecf",
+"en": "[E7] woke up!"
+},
+{
+"id": "2d:7edc",
+"en": "[E7] is cured of all ailments!"
+},
+{
+"id": "2d:7eeb",
+"en": "All enemies' defense down 20%!"
+},
+{
+"id": "2d:7eff",
+"en": "All enemies' attack down 20%!"
+},
+{
+"id": "2d:7f11",
+"en": "All allies' defense down 20%!"
+},
+{
+"id": "2d:7f26",
+"en": "All allies' attack down 20%!"
+},
+{
+"id": "2d:7f39",
+"en": "All enemies' attack up 20%!"
+},
+{
+"id": "2d:7f4b",
+"en": "All enemies' defense up 20%!"
+},
+{
+"id": "2d:7f5f",
+"en": "All allies' defense up 20%!"
+},
+{
+"id": "2d:7f74",
+"en": "All allies' attack up 20%!"
+},
+{
+"id": "2d:7f87",
+"en": "[E8] became a frog!"
+},
+{
+"id": "2d:7f93",
+"en": "[E7] revived!"
+},
+{
+"id": "2d:7f9b",
+"en": "[E9] is poisoned!"
+},
+{
+"id": "2d:7fa6",
+"en": "[E8]..."
+},
+{
+"id": "2d:7fac",
+"en": "[E9] uses [E3]!"
+},
+{
+"id": "2d:7fb4",
+"en": "Got [E1] EXP!"
+},
+{
+"id": "2d:7fbe",
+"en": "[E1] silver!"
+},
+{
+"id": "2d:7fc5",
+"en": "[EA] Lv up!"
+},
+{
+"id": "2d:7fcc",
+"en": "[E8] is confused!"
+},
+{
+"id": "2d:7fd7",
+"en": "[E8] fell asleep!"
+},
+{
+"id": "2d:7fe1",
+"en": "[E8] is poisoned!"
+},
+{
+"id": "2d:7fec",
+"en": "[E8] can't move!"
+},
+{
+"id": "2d:7e18",
+"en": "[E9]: Take this!"
+},
+{
+"id": "1e:47a2",
+"en": "0"
+}
+]
